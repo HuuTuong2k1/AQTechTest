@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row loginForm">
+        <div class="col-4 loginForm-content">
+            <div class="text-center">
+                <h2>
+                    Đăng Nhập
+                </h2>
+            </div>
+            <form [formGroup]="form" (ngSubmit)="formSubmit()">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="username" formControlName="username" placeholder="Nhập username" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password" placeholder="Nhập password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                <button type="button" class="btn btn-secondary ms-2" (click)="resetForm()">Hủy</button>
+            </form>
+        </div>
+    </div>
+</div>
