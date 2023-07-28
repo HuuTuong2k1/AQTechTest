@@ -5,7 +5,34 @@
 }
 
 .loginForm-content{
-    border: 1px solid;
+    background-color: aliceblue;
+    border: 1px solid #01999b;
     border-radius: 10px;
     padding: 30px;
+}
+
+.container-fluid{
+    background-image: url(https://wallpaperaccess.com/full/3645264.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-login{
+    color: aliceblue;
+    background-color: #01999b;
+}
+
+.login-title{
+    font-size: 25px;
+    font-weight: 900;
+    color: #01999b;
+}
+
+.btn-form-login {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.toast-err {
+    color: red;
 }

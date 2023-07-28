@@ -1,22 +1,25 @@
 <div class="container-fluid">
     <div class="row loginForm">
         <div class="col-4 loginForm-content">
-            <div class="text-center">
-                <h2>
+            <div class="text-center login-title mb-4">
+                <p>
                     Đăng Nhập
-                </h2>
+                </p>
             </div>
             <form [formGroup]="form" (ngSubmit)="formSubmit()">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" formControlName="username" placeholder="Nhập username" required>
+                  <input type="text" class="form-control" formControlName="username" placeholder="Nhập username">
                 </div>
                 <div class="mb-3">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" formControlName="password" placeholder="Nhập password" required>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Nhập mật khẩu">
                 </div>
-                <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                <button type="button" class="btn btn-secondary ms-2" (click)="resetForm()">Hủy</button>
+                <div class="mb-3" *ngIf="err != ''" class="toast-err">
+                    <p>{{err}}</p>
+                </div>
+                <div class="btn-form-login">
+                    <button type="submit" class="btn btn-login">Đăng nhập</button>
+                    <button type="button" class="btn btn-secondary me-2" (click)="resetForm()">Làm mới</button>
+                </div>
             </form>
         </div>
     </div>
