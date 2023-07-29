@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './service/helper.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

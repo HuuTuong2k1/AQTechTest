@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from '../../service/cookie.service';
+import { SinhvienService } from 'src/app/service/sinhvien.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,21 @@ import { CookieService } from '../../service/cookie.service';
   styleUrls: ['./root.component.css']
 })
 export class RootComponent implements OnInit{
-  isLogin = false;
+  infosv: any
+  isLogin = false
 
   constructor(
     private cookieService: CookieService,
     private route: Router,
+    private svService: SinhvienService
   ){}
 
   ngOnInit(): void {
     this.isLogin = this.cookieService.checkIsLogin();
-    if(this.isLogin) {
+    console.log(this.isLogin)
+    if(this.isLogin == true) {
       this.route.navigate([''])
+      this.getInfoSV()
     } else {
       this.route.navigate(['/login'])
     }
@@ -27,5 +32,16 @@ export class RootComponent implements OnInit{
   logout() {
     this.cookieService.logout();
     location.reload()
+  }
+
+  getInfoSV() {
+    this.svService.getSinhVien().subscribe({
+      next: data => {
+        console.log(data)
+      }, 
+      error : err => {
+        console.log(err)
+      }
+    });
   }
 }

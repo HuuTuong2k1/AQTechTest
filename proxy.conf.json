@@ -4,6 +4,13 @@
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
+    },
+
+    "/dkmh/w-locsinhvieninfo": {
+      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
     }
 }
   

@@ -17,7 +17,11 @@ export class CookieService {
   }
 
   public checkIsLogin(): boolean {
-    return this.myCookieService.check('access-token')
+    return (this.myCookieService.check('access-token')) 
+  }
+
+  public getCookie(): any {
+    return this.myCookieService.getAll();
   }
 
   public logout() {

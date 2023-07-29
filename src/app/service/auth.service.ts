@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'https://sp.aqtech.edu.vn/release_portal.netweb/api/auth/login';
+// const AUTH_API = 'https://sp.aqtech.edu.vn/release_portal.netweb/api/auth/login';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
