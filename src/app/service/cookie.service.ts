@@ -13,7 +13,7 @@ export class CookieService {
   }
 
   public saveRefreshToken(RFtoken: string) {
-    this.myCookieService.set('refresh-token', RFtoken)
+    this.myCookieService.set('refresh-token', RFtoken, 1)
   }
 
   public checkIsLogin(): boolean {

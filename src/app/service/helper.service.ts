@@ -20,7 +20,7 @@ export class HelperService implements HttpInterceptor{
     if(token && !req.headers.has('Authorization')) {
       req = req.clone({
         setHeaders: {
-          Authorization: 'Bearer ${token}'
+          Authorization: `Bearer ${token['access-token']}`
         }
       })
     }

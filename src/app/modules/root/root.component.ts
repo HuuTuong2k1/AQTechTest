@@ -20,8 +20,7 @@ export class RootComponent implements OnInit{
 
   ngOnInit(): void {
     this.isLogin = this.cookieService.checkIsLogin();
-    console.log(this.isLogin)
-    if(this.isLogin == true) {
+    if(this.isLogin) {
       this.route.navigate([''])
       this.getInfoSV()
     } else {
