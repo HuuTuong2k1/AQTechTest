@@ -1,0 +1,27 @@
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--main-color);
+}
+
+.btn-header {
+    color: var(--main-color);
+    font-size: 15px;
+    font-weight: 500;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0.5px solid white;
+    box-shadow: 1px 1px 0.5px 0.5px;
+}
+
+.btn-header:hover {
+    color: white;
+    background-color: var(--main-color);
+}
+
+
+.icon-header {
+    font-size: 20px;
+}

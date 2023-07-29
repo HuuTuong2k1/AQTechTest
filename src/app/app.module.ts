@@ -10,12 +10,19 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './service/helper.service';
+import { HomeComponent } from './modules/home/home.component';
+import { HeaderComponent } from './modules/header/header.component';
+import { FooterComponent } from './modules/footer/footer.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RootComponent
+    RootComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +30,8 @@ import { httpInterceptorProviders } from './service/helper.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

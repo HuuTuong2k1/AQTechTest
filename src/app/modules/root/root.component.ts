@@ -28,11 +28,6 @@ export class RootComponent implements OnInit{
     }
   }
 
-  logout() {
-    this.cookieService.logout();
-    location.reload()
-  }
-
   getInfoSV() {
     this.svService.getSinhVien().subscribe({
       next: data => {
