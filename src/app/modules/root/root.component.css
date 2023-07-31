@@ -1,0 +1,8 @@
+.contain-content-home {
+    border-radius: 5px;
+    border: 1px solid var(--border-home);
+}
+
+._root {
+    font-family: Arial, Helvetica, sans-serif;
+}

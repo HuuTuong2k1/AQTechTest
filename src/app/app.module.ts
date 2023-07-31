@@ -14,6 +14,8 @@ import { HomeComponent } from './modules/home/home.component';
 import { HeaderComponent } from './modules/header/header.component';
 import { FooterComponent } from './modules/footer/footer.component';
 import {MatIconModule} from '@angular/material/icon';
+import { InfoDetailComponent } from './modules/info-detail/info-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {MatIconModule} from '@angular/material/icon';
     RootComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    InfoDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {MatIconModule} from '@angular/material/icon';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

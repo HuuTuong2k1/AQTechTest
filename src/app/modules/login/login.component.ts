@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit{
         this.cookieService.saveToken(data['access_token'])
         this.cookieService.saveRefreshToken(data['refresh_token'])
         this.isLogin = true
-        this.route.navigate([''])
+        this.route.navigate(['/home'])
       },
       error: err => {
         this.err = err['error']['message']

@@ -1,0 +1,29 @@
+.content-home {
+    padding: 0;
+}
+
+.td-infor {
+    width: 50%;
+    border: 1px solid var(--border-home);
+    border-radius: 5px !important;
+}
+
+.field-infor {
+    font-weight: 700;
+    color: var(--main-color);
+}
+
+.table-main {
+    border-collapse: unset;
+}
+
+.btn-detail-infor {
+    margin: 20px;
+    color: green;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.btn-detail-infor:hover {
+    opacity: 0.5;
+}

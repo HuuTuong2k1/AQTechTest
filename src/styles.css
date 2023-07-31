@@ -4,5 +4,6 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
-    --main-color: #01999b;
+    --main-color: #0e4a92;
+    --border-home: #cccccc;
   }

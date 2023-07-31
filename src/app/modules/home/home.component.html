@@ -1,10 +1,68 @@
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            hello
-        </div>
-        <div class="col-6">
-            hello
-        </div>
-    </div>
+<div class="container content-home mt-3">
+    <table class="table table-main">
+        <tbody>
+            <tr>
+                <td class="td-infor">
+                    <div>
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <td colspan="2">
+                                    <div class="text-center fw-bold">THÔNG TIN SINH VIÊN</div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Mã SV</td>
+                                <td class="field-infor">{{dataSV?.ma_sv}}</td>
+                              </tr>
+                              <tr>
+                               <td>Họ tên</td>
+                               <td class="field-infor">{{dataSV?.ten_day_du}}</td>
+                              </tr>
+                              <tr>
+                                <td>Ngày sinh</td>
+                                <td class="field-infor">{{dataSV?.ngay_sinh}}</td>
+                              </tr>
+                              <tr>
+                                <td>Giới tính</td>
+                                <td class="field-infor">{{dataSV?.gioi_tinh}}</td>
+                              </tr>
+                              <tr>
+                                <td>Lớp</td>
+                                <td class="field-infor">{{dataSV?.lop}}</td>
+                              </tr>
+                              <tr>
+                                <td>Ngành học</td>
+                                <td class="field-infor">{{dataSV?.nganh}}</td>
+                              </tr>
+                              <tr>
+                                <td>Khối</td>
+                                <td class="field-infor">{{dataSV?.khoi}}</td>
+                              </tr>
+                              <tr>
+                                <td>Khoa</td>
+                                <td class="field-infor">{{dataSV?.khoa}}</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2">
+                                    <div class="text-center my-2">
+                                        <span class="btn-detail-infor" routerLink="/infoDetail">Xem thêm...</span>
+                                    </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td>
+                    <table>
+                        
+                    </table>
+                </td>
+            </tr>
+            <tr>
+            
+            </tr>
+        </tbody>
+    </table>
 </div>

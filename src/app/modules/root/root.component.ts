@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from '../../service/cookie.service';
 import { SinhvienService } from 'src/app/service/sinhvien.service';
+import { ShareDataService } from 'src/app/service/share-data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,33 +10,35 @@ import { SinhvienService } from 'src/app/service/sinhvien.service';
   styleUrls: ['./root.component.css']
 })
 export class RootComponent implements OnInit{
-  infosv: any
+  dataSV: any
   isLogin = false
 
   constructor(
     private cookieService: CookieService,
     private route: Router,
-    private svService: SinhvienService
+    private sinhvienService: SinhvienService,
+    private shareDataService: ShareDataService
   ){}
 
   ngOnInit(): void {
     this.isLogin = this.cookieService.checkIsLogin();
     if(this.isLogin) {
-      this.route.navigate([''])
-      this.getInfoSV()
+      this.inforSinhVien()
     } else {
       this.route.navigate(['/login'])
     }
   }
 
-  getInfoSV() {
-    this.svService.getSinhVien().subscribe({
+  inforSinhVien() {
+    this.sinhvienService.getSinhVien().subscribe({
       next: data => {
-        console.log(data)
-      }, 
-      error : err => {
+        this.dataSV = data['data']
+        this.shareDataService.dataShare = this.dataSV
+      },
+
+      error: err => {
         console.log(err)
       }
-    });
+    })
   }
 }
