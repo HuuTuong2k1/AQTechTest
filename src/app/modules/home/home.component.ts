@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    console.log(this.sharedDataService.dataShare)
     this.dataSV = this.sharedDataService.dataShare
   }
 }

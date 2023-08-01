@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container contain-table-detail">
     <table class="table table-striped mt-3 infoDetail-table">
         <tbody>
             <tr>
@@ -19,9 +19,150 @@
             </tr>
             <tr>
                 <td>Giới tính</td>
-                <td>{{dataSV?.ma_sv}}</td>
+                <td>{{dataSV?.gioi_tinh}}</td>
                 <td>Ngày sinh</td>
-                <td>{{dataSV?.ten_day_du}}</td>
+                <td>{{dataSV?.ngay_sinh}}</td>
+            </tr>
+            <tr>
+                <td>Tôn giáo</td>
+                <td>{{dataSV?.ton_giao}}</td>
+                <td>Dân tộc</td>
+                <td>{{dataSV?.dan_toc}}</td>
+            </tr>
+            <tr>
+                <td>Số CMND</td>
+                <td>{{dataSV?.so_cmnd}}</td>
+                <td>Quốc tịch</td>
+                <td>{{dataSV?.quoc_tich}}</td>
+            </tr>
+            <tr>
+                <td>Hô khẩu thường trú</td>
+                <td>{{dataSV?.ho_khau_thuong_tru_gd}}</td>
+                <td>Khu vực</td>
+                <td>{{dataSV?.khu_vuc}}</td>
+            </tr>
+            <tr>
+                <td>Số điện thoại</td>
+                <td>{{dataSV?.dien_thoai}} / {{dataSV?.dien_thoai2}}</td>
+                <td>Trạng thái</td>
+                <td>{{dataSV?.hien_dien_sv}}</td>
+            </tr>
+            <tr>
+                <td>Niên khóa</td>
+                <td>{{dataSV?.nien_khoa}}</td>
+                <td>Email</td>
+                <td>{{dataSV?.email}}</td>
+            </tr>
+            <tr>
+                <td>Trường</td>
+                <td>{{dataSV?.ten_truong}}</td>
+                <td>Khoa</td>
+                <td>{{dataSV?.khoa}}</td>
+            </tr>
+            <tr>
+                <td>Khối</td>
+                <td>{{dataSV?.khoi}}</td>
+                <td>Lớp</td>
+                <td>{{dataSV?.lop}}</td>
+            </tr>
+            <tr>
+                <td>Chuyên ngành</td>
+                <td>{{dataSV?.nganh}}</td>
+                <td>Hệ đào tạo</td>
+                <td>{{dataSV?.bac_he_dao_tao}}</td>
+            </tr>
+            <tr>
+                <td>Ngoại ngữ</td>
+                <td></td>
+                <td>Ngoại ngữ chính</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Ngày vào Đoàn</td>
+                <td></td>
+                <td>Ngày vào Đảng</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Ngân hàng</td>
+                <td></td>
+                <td>Số tài khoản ngân hàng</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="inforDetail-header">
+                    Cố vấn học tập
+                </td>
+            </tr>
+            <tr>
+                <td>Mã CB</td>
+                <td>CB5286</td>
+                <td>Họ và tên</td>
+                <td>{{dataSV?.ho_ten_cvht}}</td>
+            </tr>
+            <tr>
+                <td>Bộ môn</td>
+                <td>Công nghệ thông tin</td>
+                <td>Chức vụ</td>
+                <td>Trưởng bộ môn</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{dataSV?.email_cvht}}</td>
+                <td>Số điện thoại</td>
+                <td>{{dataSV?.dien_thoai_cvht}}</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="inforDetail-header">
+                    Gia đình
+                </td>
+            </tr>
+            <tr>
+                <td>Hộ khẩu tỉnh/TP</td>
+                <td>Tỉnh Trà Vinh</td>
+                <td>Hộ khẩu quận/huyện</td>
+                <td>Huyện Trà Cú</td>
+            </tr>
+            <tr>
+                <td>Họ tên cha</td>
+                <td>Nguyễn Hoàng Trung</td>
+                <td>Năm sinh cha</td>
+                <td>1978</td>
+            </tr>
+            <tr>
+                <td>Nghề nghiệp cha</td>
+                <td>Công nhân viên chức</td>
+                <td>Nơi làm việc</td>
+                <td>Ủy ban nhân dân xã Tân Sơn</td>
+            </tr>
+            <tr>
+                <td>Họ tên mẹ</td>
+                <td>Nguyễn Thị Thúy Dương</td>
+                <td>Năm sinh mẹ</td>
+                <td>1982</td>
+            </tr>
+            <tr>
+                <td>Nghề nghiệp me</td>
+                <td>Mua bán</td>
+                <td>Nơi làm việc</td>
+                <td>Tại nhà</td>
+            </tr>
+            <tr>
+                <td>Điện thoại gia đình</td>
+                <td>02943660999 / 0377458666</td>
+                <td>Địa chỉ hộ khẩu</td>
+                <td>ấp Cây Da, xã Tập Sơn, huyện Trà Cú, tỉnh Trà Vinh</td>
+            </tr>
+            <tr>
+                <td>Số anh chị em</td>
+                <td>2</td>
+                <td>Họ tên anh chị em</td>
+                <td>Nguyễn Hữu Thịnh</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="inforDetail-header-back">
+                    <button class="btn-back my-2" routerLink="/home">Trở lại</button>
+                </td>
             </tr>
         </tbody>
     </table>

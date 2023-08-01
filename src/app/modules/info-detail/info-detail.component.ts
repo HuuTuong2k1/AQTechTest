@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ShareDataService } from 'src/app/service/share-data.service';
+// import { ShareDataService } from 'src/app/service/share-data.service';
+import { SinhvienService } from 'src/app/service/sinhvien.service';
 
 @Component({
   selector: 'app-info-detail',
@@ -9,10 +10,24 @@ import { ShareDataService } from 'src/app/service/share-data.service';
 export class InfoDetailComponent implements OnInit{
   dataSV: any
   constructor(
-    private shareDataService: ShareDataService
+    // private shareDataService: ShareDataService,
+    private sinhvienService: SinhvienService
   ){}
 
   ngOnInit(): void {
-    this.dataSV = this.shareDataService.dataShare
+    this.inforSinhVien()
+  }
+
+   inforSinhVien() {
+    this.sinhvienService.getSinhVien().subscribe({
+      next: data => {
+        console.log(data)
+        this.dataSV = data['data']
+      },
+
+      error: err => {
+        console.log(err)
+      }
+    })
   }
 }

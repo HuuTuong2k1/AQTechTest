@@ -6,3 +6,8 @@
 ._root {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.footer {
+    border-top: 1px dashed var(--border-home);
+    border-bottom: 1px dashed var(--border-home);
+}
