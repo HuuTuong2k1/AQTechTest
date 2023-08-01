@@ -27,3 +27,33 @@
 .btn-detail-infor:hover {
     opacity: 0.5;
 }
+
+.header-tables-home {
+    color: var(--main-color);
+}
+
+.tr-infor-family {
+    margin-top: 20px !important;
+}
+
+.note-infor {
+    font-style: italic;
+    font-size: 13px;
+}
+
+.table-info-family td {
+    padding: 0;
+}
+
+.contain-table-info-family {
+    padding: 10px;
+    border: 1px solid var(--main-color);
+}
+
+.table-cvht td, .table-funtions td {
+    padding: 3px;
+}
+
+.img-icon-home {
+    width: 20%;
+}

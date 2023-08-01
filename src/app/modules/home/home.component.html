@@ -3,12 +3,13 @@
         <tbody>
             <tr>
                 <td class="td-infor">
+                  <!-- Bảng thông tin sinh viên -->
                     <div>
                         <table class="table">
                             <tbody>
                               <tr>
                                 <td colspan="2">
-                                    <div class="text-center fw-bold">THÔNG TIN SINH VIÊN</div>
+                                    <div class="text-center fw-bold header-tables-home">THÔNG TIN SINH VIÊN</div>
                                 </td>
                               </tr>
                               <tr>
@@ -54,14 +55,141 @@
                         </table>
                     </div>
                 </td>
-                <td>
-                    <table>
-                        
+                <td style="border: none;">
+
+                </td>
+                <td class="td-infor table-funtions">
+                    <table class="table table-borderless text-center">
+                        <tbody>
+                          <tr>
+                            <td><img class="img-icon-home" src="../../../assets/images/info.png" alt="#"></td>
+                            <td><img class="img-icon-home" src="../../../assets/images/calendar.png" alt="#"></td>
+                          </tr>
+                          <tr>
+                            <td>Thông tin sinh viên</td>
+                            <td>Chương trinh đào tạo</td>
+                          </tr>
+                          <tr>
+                            <td><img class="img-icon-home" src="../../../assets/images/exam.png" alt="#"></td>
+                            <td><img class="img-icon-home" src="../../../assets/images/exam (1).png" alt="#"></td>
+                          </tr>
+                          <tr>
+                            <td>Kết quả học tập</td>
+                            <td>Lịch thi</td>
+                          </tr>
+                          <tr>
+                            <td><img class="img-icon-home" src="../../../assets/images/tuition.png" alt="#"></td>
+                            <td><img class="img-icon-home" src="../../../assets/images/classroom.png" alt="#"></td>
+                          </tr>
+                          <tr>
+                            <td>Học phí</td>
+                            <td>Phòng học</td>
+                          </tr>
+                          <tr>
+                            <td><img class="img-icon-home" src="../../../assets/images/graduation.png" alt="#"></td>
+                            <td><img class="img-icon-home" src="../../../assets/images/dormitory.png" alt="#"></td>
+                          </tr>
+                          <tr>
+                            <td>Kết quả tốt nghiệp</td>
+                            <td>Ký túc xá</td>
+                          </tr>
+                          <tr>
+                            <td><img class="img-icon-home" src="../../../assets/images/microbiology.png" alt="#"></td>
+                            <td><img class="img-icon-home" src="../../../assets/images/extracurricular.png" alt="#"></td>
+                          </tr>
+                          <tr>
+                            <td>Nghiên cứu khoa học</td>
+                            <td>Hoạt động ngoại khóa</td>
+                          </tr>
+                        </tbody>
                     </table>
                 </td>
             </tr>
             <tr>
-            
+              <div style="height: 20px;">
+
+              </div>
+            </tr>
+            <tr class="tr-infor-family">
+              <td class="td-infor td-infor-family">
+                <!-- Bảng thông tin gia đình -->
+                <div class="contain-table-info-family">
+                  <table class="table table-borderless table-info-family">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="text-center fw-bold header-tables-home">THÔNG TIN GIA ĐÌNH SINH VIÊN</div>
+                        </td>
+                      </tr>
+                      <tr style="height: 15px;">
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>Cha: </b>
+                          Nguyễn Hoàng Thành
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>Mẹ: </b>
+                          Nguyễn Thị Thúy Diễm
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>Hộ khẩu thường trú: </b>
+                          {{dataSV?.ho_khau_thuong_tru_gd}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>Số điện thoại: </b>
+                          02943553789 / 0939788779
+                        </td>
+                      </tr>
+                      <tr style="height: 15px;">
+                      </tr>
+                      <tr>
+                        <td class="note-infor">
+                          Các thông tin này là các thông tin quan trọng có liên quan đến thông tin tốt nghiệp của sinh viên. Nếu có bất cứ sai sót nào sinh viên vui lòng cập nhật lại chính xác thôn tin. Sinh viên có thể hệ với nhà trường để được hỗ trợ thêm.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+              <td style="border: none;">
+
+              </td>
+              <td class="td-infor">
+                <div>
+                  <table class="table table-light table-bordered table-cvht">
+                    <tbody>
+                      <tr>
+                        <td colspan="2">
+                          <div class="text-center fw-bold header-tables-home my-2">CỐ VẤN HỌC TẬP</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Mã CB</td>
+                        <td><b>CB5286</b></td>
+                      </tr>
+                      <tr>
+                        <td>Họ và tên</td>
+                        <td><b>{{dataSV?.ho_ten_cvht}}</b></td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><b>{{dataSV?.email_cvht}}</b></td>
+                      </tr>
+                      <tr>
+                        <td>Số điện thoại</td>
+                        <td><b>{{dataSV?.dien_thoai_cvht}}</b></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
             </tr>
         </tbody>
     </table>
