@@ -11,6 +11,13 @@
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
+    },
+
+    "/sch/w-locdsctdtsinhvien": {
+      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
     }
 }
   

@@ -16,6 +16,7 @@ import { FooterComponent } from './modules/footer/footer.component';
 import {MatIconModule} from '@angular/material/icon';
 import { InfoDetailComponent } from './modules/info-detail/info-detail.component';
 import { RouterModule } from '@angular/router';
+import { EducationProgramComponent } from './modules/education-program/education-program.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    InfoDetailComponent
+    InfoDetailComponent,
+    EducationProgramComponent
   ],
   imports: [
     BrowserModule,
