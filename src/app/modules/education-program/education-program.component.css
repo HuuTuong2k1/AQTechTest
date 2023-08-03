@@ -11,6 +11,8 @@ table {
     color: #fff;
     font-weight: bold;
     font-size: 13px ;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
 }
 
 .tr-lietkeCTDT {
@@ -33,6 +35,10 @@ table {
     width: 75px;
     font-size: 13px;
     font-weight: bold;
+}
+
+.btn-lietke:hover {
+    opacity: 0.7;
 }
 
 .tables-CTDT {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { EducationProgramService } from 'src/app/service/education-program.service';
 
 interface EducationProgramData {
@@ -13,7 +15,7 @@ interface EducationProgramData {
   styleUrls: ['./education-program.component.css']
 })
 export class EducationProgramComponent implements OnInit{
-  isCheckClickLietKe = false
+  isLietKe = false
   dataCTDT: EducationProgramData[] = []
   dataSelected: EducationProgramData[] = []
   hocky: string = ''
@@ -21,19 +23,51 @@ export class EducationProgramComponent implements OnInit{
 
   ngOnInit(): void {
     this.EducationProgram()
+    this.retrieveDataFromSessionStorage()
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationStart))
+      .subscribe(() => {
+        sessionStorage.clear(); // Xóa dữ liệu trong sessionStorage mỗi khi chuyển trang
+    });
   }
 
   constructor(
-    private eduService: EducationProgramService
+    private eduService: EducationProgramService,
+    private router: Router,
   ){} 
+
+  private saveDataTosessionStorage() {
+    const dataToSave = {
+      hocky: this.hocky,
+      namhoc: this.namhoc,
+      isLietKe: this.isLietKe,
+      dataSelected: this.dataSelected
+    };
+    sessionStorage.setItem('education_program_data', JSON.stringify(dataToSave));
+  }
+
+  private retrieveDataFromSessionStorage() {
+    const savedData = sessionStorage.getItem('education_program_data');
+    if (savedData) {
+      const { hocky, namhoc, isLietKe,dataSelected } = JSON.parse(savedData);
+      this.hocky = hocky;
+      this.namhoc = namhoc;
+      this.isLietKe = isLietKe;
+      this.dataSelected = dataSelected;
+    } else {
+      // Nếu không có dữ liệu trong sessionStorage thì mặc định là hocky và namhoc như sau:
+      this.hocky = '1';
+      this.namhoc = '2020-2021';
+    }
+  }
 
   EducationProgram() {
     this.eduService.educationProgram().subscribe({
       next: data => {
         this.dataCTDT = data.data.ds_CTDT_hocky
-        this.dataSelected.push(this.dataCTDT[0]);
-        console.log(this.dataCTDT)
-        console.log(this.dataSelected)
+        this.saveDataTosessionStorage()
+        console.log(this.dataCTDT[0])
       },
 
       error: err => {
@@ -43,6 +77,7 @@ export class EducationProgramComponent implements OnInit{
   }
 
   onclickLietke() {
+    this.isLietKe = true
     this.dataSelected = [];
     this.dataCTDT.forEach(element => {
       if (this.hocky != '0' && this.namhoc != '0') {
@@ -56,6 +91,7 @@ export class EducationProgramComponent implements OnInit{
         this.dataSelected.push(element)
       }
     });
+    this.saveDataTosessionStorage()
   }
 }
 
