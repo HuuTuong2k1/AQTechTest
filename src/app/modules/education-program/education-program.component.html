@@ -16,7 +16,7 @@
                                         <tr class="text-center">
                                             <td style="width: 30%;" class="text-end">Năm học</td>
                                             <td>
-                                                <select class="select-lietke" name="" id="">
+                                                <select class="select-lietke" name="" id="namhoc" [(ngModel)]="namhoc">
                                                     <option value="2020-2021">2020-2021</option>
                                                     <option value="2021-2022">2021-2022</option>
                                                     <option value="2022-2023">2022-2023</option>
@@ -26,14 +26,14 @@
                                             </td>
                                             <td class="text-start">Học kỳ</td>
                                             <td class="text-start">
-                                                <select class="select-lietke" name="" id="">
+                                                <select class="select-lietke" name="" id="hocky" [(ngModel)]="hocky">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="0">Tất cả</option>
                                                 </select>
                                             </td>
                                             <td style="width: 30%;" class="text-start">
-                                                <button class="btn-lietke">
+                                                <button class="btn-lietke" id="btnLietke" (click)="onclickLietke()">
                                                     Liệt kê
                                                 </button>
                                             </td>
@@ -46,50 +46,52 @@
                 </table>
 
                 <!-- Bảng thành phần -->
-                <div *ngIf="!isCheckLietKe">
-                    <table class="tables-CTDT">
-                        <tbody>
-                            <tr>
-                                <td colspan="5" class="text-center education-program-table-header">
-                                    Học kỳ 1 Năm học 2020-2021
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <table class="table table-striped table-hover table-bordered">
-                                        <thead>
-                                            <tr>
-                                              <th scope="col">STT</th>
-                                              <th scope="col">Mã môn học</th>
-                                              <th scope="col">Tên môn học</th>
-                                              <th scope="col">Số TC</th>
-                                              <th scope="col">Bắt buộc</th>
-                                              <th scope="col">Số tiết LT</th>
-                                              <th scope="col">Số tiết TH</th>
-                                              <th scope="col">Môn đã học</th>
-                                              <th scope="col">Ghi chú</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <ng-container *ngIf="dataCTDT && dataCTDT[0]">
-                                                <tr *ngFor="let value of dataCTDT[0].ds_CTDT_mon_hoc; index as i">
-                                                  <td>{{i+1}}</td>
-                                                  <td>{{value.ma_mon}}</td>
-                                                  <td>{{value.ten_mon}}</td>
-                                                  <td>{{value.so_tin_chi}}</td>
-                                                  <td>{{value.mon_bat_buoc}}</td>
-                                                  <td>{{value.ly_thuyet}}</td>
-                                                  <td>{{value.thuc_hanh}}</td>
-                                                  <td>{{value.mon_da_hoc}}</td>
-                                                  <td></td>
+                <div>
+                    <ng-container *ngIf="dataSelected">
+                        <table class="tables-CTDT" *ngFor="let data of dataSelected">
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="text-center education-program-table-header">
+                                        {{data.ten_hoc_ky}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table table-striped table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                  <th scope="col">STT</th>
+                                                  <th scope="col">Mã môn học</th>
+                                                  <th scope="col">Tên môn học</th>
+                                                  <th scope="col">Số TC</th>
+                                                  <th scope="col">Bắt buộc</th>
+                                                  <th scope="col">Số tiết LT</th>
+                                                  <th scope="col">Số tiết TH</th>
+                                                  <th scope="col">Môn đã học</th>
+                                                  <th scope="col">Ghi chú</th>
                                                 </tr>
-                                            </ng-container>
-                                          </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                              </thead>
+                                              <tbody>
+                                                <ng-container *ngIf="data">
+                                                    <tr *ngFor="let value of data.ds_CTDT_mon_hoc; index as i">
+                                                      <td>{{i+1}}</td>
+                                                      <td>{{value.ma_mon}}</td>
+                                                      <td>{{value.ten_mon}}</td>
+                                                      <td>{{value.so_tin_chi}}</td>
+                                                      <td>{{value.mon_bat_buoc}}</td>
+                                                      <td>{{value.ly_thuyet}}</td>
+                                                      <td>{{value.thuc_hanh}}</td>
+                                                      <td>{{value.mon_da_hoc}}</td>
+                                                      <td></td>
+                                                    </tr>
+                                                </ng-container>
+                                              </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
                 </div>
             </td>
         </tr>
