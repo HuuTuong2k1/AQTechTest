@@ -54,7 +54,8 @@ table {
 }
 
 .td-total {
-    padding-left: 20%;
+    text-align: center;
+    font-weight: bold;
     background-color: #dae9f3;
     border: 1px solid #b1c6d5;
 }

@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LearningResultService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  public getDiem(): Observable<any> {
+    return this.http.post("/srm/w-locdsdiemsinhvien", "")
+  }
 }
