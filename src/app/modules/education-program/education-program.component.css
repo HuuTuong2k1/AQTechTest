@@ -44,3 +44,11 @@ table {
 .tables-CTDT {
     margin-top: 20px;
 }
+
+.btn-back {
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+}

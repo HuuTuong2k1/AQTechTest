@@ -9,11 +9,11 @@ export class CookieService {
   constructor(private myCookieService: myCookieService) { }
 
   public saveToken(token: string) {
-    this.myCookieService.set('access-token', token, 1)
+    this.myCookieService.set('access-token', token, 0.125)
   }
 
   public saveRefreshToken(RFtoken: string) {
-    this.myCookieService.set('refresh-token', RFtoken, 1)
+    this.myCookieService.set('refresh-token', RFtoken, 0.125)
   }
 
   public checkIsLogin(): boolean {

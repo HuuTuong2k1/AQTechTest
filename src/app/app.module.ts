@@ -17,6 +17,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { InfoDetailComponent } from './modules/info-detail/info-detail.component';
 import { RouterModule } from '@angular/router';
 import { EducationProgramComponent } from './modules/education-program/education-program.component';
+import { TuitionComponent } from './modules/tuition/tuition.component';
+import { LearningResultComponent } from './modules/learning-result/learning-result.component';
+import { TestScheduleComponent } from './modules/test-schedule/test-schedule.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { EducationProgramComponent } from './modules/education-program/education
     HeaderComponent,
     FooterComponent,
     InfoDetailComponent,
-    EducationProgramComponent
+    EducationProgramComponent,
+    TuitionComponent,
+    LearningResultComponent,
+    TestScheduleComponent
   ],
   imports: [
     BrowserModule,
