@@ -1,1 +1,222 @@
-<p>tuition works!</p>
+<table class="parent-table">
+    <tbody>
+        <tr>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="5" class="text-center education-program-table-header">
+                                Thông tin học phí
+                            </td>
+                        </tr>
+                        <tr class="tr-lietkeTuition">
+                            <td class="td-lietkeTuition">
+                                <table>
+                                    <tbody>
+                                        <tr class="text-center">
+                                            <td style="width: 30%;" class="text-end">Năm học</td>
+                                            <td>
+                                                <select class="select-lietke" name="" id="namhoc" [(ngModel)]="namhoc">
+                                                    <option value="2020 - 2021">2020-2021</option>
+                                                    <option value="2021 - 2022">2021-2022</option>
+                                                    <option value="2022 - 2023">2022-2023</option>
+                                                    <option value="2023 - 2024">2023-2024</option>
+                                                    <option value="0">Tất cả</option>
+                                                </select>
+                                            </td>
+                                            <td class="text-start">Học kỳ</td>
+                                            <td class="text-start">
+                                                <select class="select-lietke" name="" id="hocky" [(ngModel)]="hocky">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="0">Tất cả</option>
+                                                </select>
+                                            </td>
+                                            <td style="width: 30%;" class="text-start">
+                                                <button class="btn-lietke" id="btnLietke" (click)="onclickLietke()">
+                                                    Liệt kê
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Bảng thành phần -->
+                <div *ngIf="isLietKe">
+                    <ng-container *ngIf="dataSelected">
+                        <table class="tables-Tuition">
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="text-center education-program-table-header">
+                                       Học kỳ {{hocky}} năm học {{namhoc}} 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th style="width: 15%;" scope="col">Tiêu đề</th>
+                                                    <th scope="col">Học phí</th>
+                                                    <th scope="col">Miễn giảm</th>
+                                                    <th scope="col">Phải thu</th>
+                                                    <th scope="col">Tổng học bổng</th>
+                                                    <th scope="col">Đã thu</th>
+                                                    <th scope="col">Còn nợ</th>
+                                                    <th scope="col">Ghi chú</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <ng-container *ngIf="dataSelected.length > 0; else noDataSelected">
+                                                    <tr *ngFor="let item of dataSelected; index as i">
+                                                        <td class="td-stt">{{i+1}}</td>
+                                                        <td>{{item.ten_nhom_ct}}</td>
+                                                        <td>{{item.hoc_phi}}</td>
+                                                        <td>{{item.mien_giam}}</td>
+                                                        <td>{{item.phai_thu}}</td>
+                                                        <td>{{item.tong_hoc_bong}}</td>
+                                                        <td>{{item.da_thu}}</td>
+                                                        <td>{{item.con_no}}</td>
+                                                        <td>{{item.ghi_chu}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">Tổng cộng</td>
+                                                        <td colspan="3" class="td-total">{{totalHocPhi}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Miễn giảm</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalMienGiam}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Phải đóng</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalPhaiThu}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Đã đóng</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalDaThu}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Còn nợ</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalConNo}}</td>
+                                                    </tr>
+                                                </ng-container>
+                                                <ng-template #noDataSelected>
+                                                    <tr>
+                                                        <td colspan="9" class="text-center">
+                                                            Không có dữ liệu
+                                                        </td>
+                                                    </tr>
+                                                </ng-template>
+                                              </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
+                </div>
+
+                <div *ngIf="!isLietKe">
+                    <ng-container *ngIf="dataTuition">
+                        <table class="tables-Tuition" >
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="text-center education-program-table-header">
+                                        Học kỳ 1 năm học 2020 - 2021
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                  <th scope="col">STT</th>
+                                                  <th style="width: 15%;" scope="col">Tiêu đề</th>
+                                                  <th scope="col">Học phí</th>
+                                                  <th scope="col">Miễn giảm</th>
+                                                  <th scope="col">Phải thu</th>
+                                                  <th scope="col">Tổng học bổng</th>
+                                                  <th scope="col">Đã thu</th>
+                                                  <th scope="col">Còn nợ</th>
+                                                  <th scope="col">Ghi chú</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <ng-container *ngIf="isCheckData20201(); else noData">
+                                                    <tr *ngFor="let item of dataTuition; index as i">
+                                                        <ng-container *ngIf="item.ten_hoc_ky === 'Học kỳ 1 năm học 2020 - 2021'">
+                                                            <td class="td-stt">{{i+1}}</td>
+                                                            <td>{{item.ten_nhom_ct}}</td>
+                                                            <td>{{item.hoc_phi}}</td>
+                                                            <td>{{item.mien_giam}}</td>
+                                                            <td>{{item.phai_thu}}</td>
+                                                            <td>{{item.tong_hoc_bong}}</td>
+                                                            <td>{{item.da_thu}}</td>
+                                                            <td>{{item.con_no}}</td>
+                                                            <td>{{item.ghi_chu}}</td>
+                                                        </ng-container>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">Tổng cộng</td>
+                                                        <td colspan="3" class="td-total">{{totalHocPhi}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Miễn giảm</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalMienGiam}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Phải đóng</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalPhaiThu}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Đã đóng</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalDaThu}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6" class="td-total">
+                                                            <b>Còn nợ</b>
+                                                        </td>
+                                                        <td colspan="3" class="td-total">{{totalConNo}}</td>
+                                                    </tr>
+                                                </ng-container>
+                                                <ng-template #noData>
+                                                    <tr>
+                                                      <td colspan="9" class="text-center">
+                                                        Không có dữ liệu
+                                                      </td>
+                                                    </tr>
+                                                  </ng-template>
+                                              </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
+                </div>
+                <div class="text-center">
+                    <button routerLink="/home" class="btn-back">Trở lại</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -67,7 +67,6 @@ export class EducationProgramComponent implements OnInit{
       next: data => {
         this.dataCTDT = data.data.ds_CTDT_hocky
         this.saveDataTosessionStorage()
-        console.log(this.dataCTDT[0])
       },
 
       error: err => {
