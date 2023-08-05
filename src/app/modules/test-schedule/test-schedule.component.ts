@@ -1,10 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TestScheduleService } from 'src/app/service/test-schedule.service';
 
 @Component({
   selector: 'app-test-schedule',
   templateUrl: './test-schedule.component.html',
   styleUrls: ['./test-schedule.component.css']
 })
-export class TestScheduleComponent {
+export class TestScheduleComponent implements OnInit {
 
+  constructor(
+    private TestScheduleService: TestScheduleService
+  ) {}
+
+  ngOnInit(): void {
+    this.getTestSchedule()
+  }
+
+  getTestSchedule() {
+    this.TestScheduleService.getLichThi().subscribe({
+      next: data => {
+        console.log(data)
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
+  }
 }
