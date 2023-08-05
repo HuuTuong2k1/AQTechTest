@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LearningResultService } from 'src/app/service/learning-result.service';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators'
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { DialogMarksComponent } from '../dialog-marks/dialog-marks.component';
 
 interface LearningResultData{
   loai_nganh: number,
@@ -30,10 +33,12 @@ export class LearningResultComponent implements OnInit{
   dataSelected:LearningResultData[] = []
   hocky: string = ''
   namhoc: string = ''
+  total_TC_Dky: number = 0
 
   constructor(
     private learningResultService: LearningResultService,
-    private route: Router
+    private route: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +81,7 @@ export class LearningResultComponent implements OnInit{
     this.learningResultService.getDiem().subscribe({
       next: data => {
         this.dataResult = data.data['ds_diem_hocky']
+        this.totalTC()
       },
       error: err => {
         console.log(err)
@@ -99,5 +105,20 @@ export class LearningResultComponent implements OnInit{
     });
     console.log(this.dataSelected)
     this.saveDataTosessionStorage()
+    this.totalTC()
+  }
+
+  totalTC() {
+    if(this.isLietKe) {
+      this.total_TC_Dky = this.dataSelected[0].ds_diem_mon_hoc.reduce((total, item) => total += parseFloat(item['so_tin_chi']), 0)
+    } else {
+      this.total_TC_Dky = this.dataResult[0].ds_diem_mon_hoc.reduce((total, item) => total += parseFloat(item['so_tin_chi']), 0)
+    }
+  }
+
+  openDialog(value: any) {
+    this.dialog.open(DialogMarksComponent, {
+      data: value
+    });
   }
 }

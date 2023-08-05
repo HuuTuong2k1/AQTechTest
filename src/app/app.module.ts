@@ -20,6 +20,8 @@ import { EducationProgramComponent } from './modules/education-program/education
 import { TuitionComponent } from './modules/tuition/tuition.component';
 import { LearningResultComponent } from './modules/learning-result/learning-result.component';
 import { TestScheduleComponent } from './modules/test-schedule/test-schedule.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogMarksComponent } from './modules/dialog-marks/dialog-marks.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { TestScheduleComponent } from './modules/test-schedule/test-schedule.com
     EducationProgramComponent,
     TuitionComponent,
     LearningResultComponent,
-    TestScheduleComponent
+    TestScheduleComponent,
+    DialogMarksComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { TestScheduleComponent } from './modules/test-schedule/test-schedule.com
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -56,7 +56,6 @@ export class EducationProgramComponent implements OnInit{
       this.isLietKe = isLietKe;
       this.dataSelected = dataSelected;
     } else {
-      // Nếu không có dữ liệu trong sessionStorage thì mặc định là hocky và namhoc như sau:
       this.hocky = '1';
       this.namhoc = '2020-2021';
     }

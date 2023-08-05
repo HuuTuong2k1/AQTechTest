@@ -1,0 +1,8 @@
+.marks-table-header {
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px ;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}

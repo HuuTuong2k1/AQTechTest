@@ -5,7 +5,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td colspan="5" class="text-center education-program-table-header">
+                            <td colspan="5" class="text-center learning-result-table-header">
                                 Thông tin kết quả học tập
                             </td>
                         </tr>
@@ -51,8 +51,8 @@
                         <table *ngFor="let data of dataSelected" class="tables-Result">
                             <tbody>
                                 <tr>
-                                    <td colspan="5" class="text-center education-program-table-header">
-                                       {{data.ten_hoc_ky}}
+                                    <td colspan="5" class="text-center learning-result-table-header">
+                                       {{data?.ten_hoc_ky}}
                                     </td>
                                 </tr>
                                 <tr>
@@ -73,23 +73,23 @@
                                               <tbody>
                                                 <ng-container *ngIf="data">
                                                     <tr *ngFor="let value of data.ds_diem_mon_hoc; index as i">
-                                                      <td>{{i+1}}</td>
+                                                      <td class="text-center">{{i+1}}</td>
                                                       <td>{{value['ma_mon']}}</td>
                                                       <td>{{value['ten_mon']}}</td>
-                                                      <td>{{value['so_tin_chi']}}</td>
-                                                      <td>{{value['diem_tk_chu']}}</td>
-                                                      <td>{{value['diem_tk_so']}}</td>
-                                                      <td>xem</td>
-                                                      <td style="color: red; font-size: 20px; text-align: center;">{{value['diem_tk_so'] >= 1 ? '*' : ''}}</td>
+                                                      <td class="text-center">{{value['so_tin_chi']}}</td>
+                                                      <td class="text-center">{{value['diem_tk_chu']}}</td>
+                                                      <td class="text-center">{{value['diem_tk_so']}}</td>
+                                                      <td class="text-center modal-dialog modal-dialog-centered {{value['diem_tk_so'] ? 'xem-diem' : ''}}">{{value['diem_tk_so'] ? 'xem' : ''}}</td>
+                                                      <td class="text-center" style="color: red; font-size: 20px;">{{value['diem_tk_so'] >= 1 ? '*' : ''}}</td>
                                                     </tr>
                                                 </ng-container>
                                               </tbody>
                                         </table>
-                                        <table class="table table-light">
+                                        <table class="table table-light table-tk">
                                             <tbody>
                                                 <tr>
                                                     <td>Tổng số tính chỉ đăng ký</td>
-                                                    <td></td>
+                                                    <td>{{total_TC_Dky}}</td>
                                                     <td>Điểm trung bình học kỳ</td>
                                                     <td></td>
                                                 </tr>
@@ -115,11 +115,11 @@
                 </div>
 
                 <div *ngIf="isLietKe == false">
-                    <ng-container *ngIf="dataResult">
+                    <ng-container *ngIf="dataResult[0]">
                         <table class="tables-Result">
                             <tbody>
                                 <tr>
-                                    <td colspan="5" class="text-center education-program-table-header">
+                                    <td colspan="5" class="text-center learning-result-table-header">
                                         {{dataResult[0].ten_hoc_ky}}
                                     </td>
                                 </tr>
@@ -134,53 +134,67 @@
                                                     <th scope="col">Số TC</th>
                                                     <th scope="col">Điểm chữ</th>
                                                     <th scope="col">Điểm số</th>
-                                                    <th scope="col">Điểm thành phần</th>
+                                                    <th style="width: 15%;" scope="col">Điểm thành phần</th>
                                                     <th scope="col">Tích lũy</th>
                                                 </tr>
                                               </thead>
                                               <tbody>
                                                 <ng-container *ngIf="dataResult[0].ds_diem_mon_hoc">
                                                     <tr *ngFor="let value of dataResult[0].ds_diem_mon_hoc; index as i">
-                                                        <td>{{i+1}}</td>
+                                                        <td class="text-center">{{i+1}}</td>
                                                         <td>{{value['ma_mon']}}</td>
                                                         <td>{{value['ten_mon']}}</td>
-                                                        <td>{{value['so_tin_chi']}}</td>
-                                                        <td>{{value['diem_tk_chu']}}</td>
-                                                        <td>{{value['diem_tk_so']}}</td>
-                                                        <td>xem</td>
+                                                        <td class="text-center">{{value['so_tin_chi']}}</td>
+                                                        <td class="text-center">{{value['diem_tk_chu']}}</td>
+                                                        <td class="text-center">{{value['diem_tk_so']}}</td>
+                                                        <td mat-button (click)="openDialog(value)" class="text-center {{value['diem_tk_so'] ? 'xem-diem' : ''}}">{{value['diem_tk_so'] ? 'xem' : ''}}</td>
                                                         <td style="color: red; font-size: 20px; text-align: center;">{{value['diem_tk_so'] >= 1 ? '*' : ''}}</td>
                                                     </tr>
                                                 </ng-container>
                                               </tbody>
                                         </table>
-                                        <table class="table table-light">
+                                        <table class="table table-light table-tk">
                                             <tbody>
                                                 <tr>
-                                                    <td>Tổng số tính chỉ đăng ký</td>
-                                                    <td></td>
+                                                    <td>Tổng số tín chỉ đăng ký</td>
+                                                    <td>{{total_TC_Dky}}</td>
                                                     <td>Điểm trung bình học kỳ</td>
-                                                    <td></td>
+                                                    <td>{{dataResult[0].dtb_hk_he4}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Tổng số tín chỉ tích lũy học kỳ</td>
-                                                    <td></td>
+                                                    <td>{{dataResult[0].so_tin_chi_dat_hk}}</td>
                                                     <td>Điểm trung bình tích lũy</td>
-                                                    <td></td>
+                                                    <td>{{dataResult[0].dtb_tich_luy_he_4}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Tổng số tín chỉ tích lũy</td>
-                                                    <td></td>
+                                                    <td>
+                                                        {{dataResult[0].so_tin_chi_dat_tich_luy}}
+                                                    </td>
                                                     <td>Điểm rèn luyện</td>
-                                                    <td></td>
+                                                    <td>80</td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </ng-container>
                 </div>
+                <ng-container *ngIf="dataSelected.length === 0">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 text-center">
+                                    Không có dữ liệu để hiển thị
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-container>
                 <div class="text-center">
                     <button routerLink="/home" class="btn-back">Trở lại</button>
                 </div>
