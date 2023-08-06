@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LearningResultService } from 'src/app/service/learning-result.service';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators'
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+import {MatDialog} from '@angular/material/dialog';
 import { DialogMarksComponent } from '../dialog-marks/dialog-marks.component';
 
 interface LearningResultData{

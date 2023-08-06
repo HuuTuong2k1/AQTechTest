@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TestScheduleService } from 'src/app/service/test-schedule.service';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { TestScheduleDetailComponent } from '../test-schedule-detail/test-schedule-detail.component';
 
 @Component({
   selector: 'app-test-schedule',
@@ -16,7 +18,8 @@ export class TestScheduleComponent implements OnInit {
 
   constructor(
     private TestScheduleService: TestScheduleService,
-    private route: Router
+    private route: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -65,5 +68,11 @@ export class TestScheduleComponent implements OnInit {
   onclickLietke(){
     this.hoc_ky = `${this.namhoc}${this.hocky}`
     this.getTestSchedule(this.hoc_ky)
+  }
+
+  openDialog(data:any) {
+    this.dialog.open(TestScheduleDetailComponent, {
+      data: data
+    })
   }
 }
