@@ -13,11 +13,11 @@ export class TestScheduleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getTestSchedule()
+    // this.getTestSchedule()
   }
 
-  getTestSchedule() {
-    this.TestScheduleService.getLichThi().subscribe({
+  getTestSchedule(hocky: string) {
+    this.TestScheduleService.getLichThi(hocky).subscribe({
       next: data => {
         console.log(data)
       },

@@ -47,12 +47,12 @@
 
                 <!-- Bảng thành phần -->
                 <div *ngIf="isLietKe==true">
-                    <ng-container *ngIf="dataSelected">
+                    <ng-container *ngIf="dataSelected.length > 0; else NoData">
                         <table *ngFor="let data of dataSelected" class="tables-Result">
                             <tbody>
                                 <tr>
                                     <td colspan="5" class="text-center learning-result-table-header">
-                                       {{data?.ten_hoc_ky}}
+                                       {{data.ten_hoc_ky}}
                                     </td>
                                 </tr>
                                 <tr>
@@ -71,7 +71,7 @@
                                                 </tr>
                                               </thead>
                                               <tbody>
-                                                <ng-container *ngIf="data">
+                                                <ng-container *ngIf="data.ds_diem_mon_hoc && data.ds_diem_mon_hoc.length > 0">
                                                     <tr *ngFor="let value of data.ds_diem_mon_hoc; index as i">
                                                       <td class="text-center">{{i+1}}</td>
                                                       <td>{{value['ma_mon']}}</td>
@@ -79,7 +79,7 @@
                                                       <td class="text-center">{{value['so_tin_chi']}}</td>
                                                       <td class="text-center">{{value['diem_tk_chu']}}</td>
                                                       <td class="text-center">{{value['diem_tk_so']}}</td>
-                                                      <td class="text-center modal-dialog modal-dialog-centered {{value['diem_tk_so'] ? 'xem-diem' : ''}}">{{value['diem_tk_so'] ? 'xem' : ''}}</td>
+                                                      <td mat-button (click)="openDialog(value)" class="text-center {{value['diem_tk_so'] ? 'xem-diem' : ''}}">{{value['diem_tk_so'] ? 'xem' : ''}}</td>
                                                       <td class="text-center" style="color: red; font-size: 20px;">{{value['diem_tk_so'] >= 1 ? '*' : ''}}</td>
                                                     </tr>
                                                 </ng-container>
@@ -89,7 +89,11 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Tổng số tính chỉ đăng ký</td>
-                                                    <td>{{total_TC_Dky}}</td>
+                                                    <ng-container *ngFor="let item of total_TC_Dky_">
+                                                        <td *ngIf="item.hocky === data.hoc_ky">
+                                                            {{item['total']}}
+                                                        </td>
+                                                    </ng-container>
                                                     <td>Điểm trung bình học kỳ</td>
                                                     <td></td>
                                                 </tr>
@@ -103,7 +107,7 @@
                                                     <td>Tổng số tín chỉ tích lũy</td>
                                                     <td></td>
                                                     <td>Điểm rèn luyện</td>
-                                                    <td></td>
+                                                    <td>80</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -112,6 +116,17 @@
                             </tbody>
                         </table>
                     </ng-container>
+                    <ng-template #NoData>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="p-3 text-center">
+                                        Không có dữ liệu để hiển thị
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-template>
                 </div>
 
                 <div *ngIf="isLietKe == false">
@@ -184,7 +199,7 @@
                         </table>
                     </ng-container>
                 </div>
-                <ng-container *ngIf="dataSelected.length === 0">
+                <ng-container *ngIf="dataResult.length === 0">
                     <table>
                         <tbody>
                             <tr>

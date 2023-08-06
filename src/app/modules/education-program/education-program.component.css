@@ -49,6 +49,7 @@ table {
     background-color: var(--main-color);
     color: #fff;
     border: none;
-    font-size: 12px;
+    width: 75px;
+    font-size: 13px;
     font-weight: bold;
 }

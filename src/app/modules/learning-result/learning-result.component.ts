@@ -21,6 +21,11 @@ interface LearningResultData{
   ds_diem_mon_hoc: [],
 }
 
+interface TotalTC{
+  hocky: string,
+  total: number
+}
+
 @Component({
   selector: 'app-learning-result',
   templateUrl: './learning-result.component.html',
@@ -34,6 +39,7 @@ export class LearningResultComponent implements OnInit{
   hocky: string = ''
   namhoc: string = ''
   total_TC_Dky: number = 0
+  total_TC_Dky_: TotalTC[]=[] 
 
   constructor(
     private learningResultService: LearningResultService,
@@ -91,26 +97,41 @@ export class LearningResultComponent implements OnInit{
 
   onclickLietke() {
     this.isLietKe = true
-    this.dataSelected = [];
+    this.dataSelected = []
+    this.total_TC_Dky_ = []
     this.dataResult.forEach(element => {
       if (this.hocky != '0' && this.namhoc != '0') {
         (element.hoc_ky === `${this.namhoc}${this.hocky}`) ? this.dataSelected.push(element) : ''
       } else if (this.hocky != '0' && this.namhoc === '0'){
-        (element.hoc_ky.includes(`${this.hocky}`)) ? this.dataSelected.push(element) : ''
+        (element.ten_hoc_ky.includes(`Học kỳ ${this.hocky}`)) ? this.dataSelected.push(element) : ''
       } else if (this.hocky === '0' && this.namhoc != '0') {
         (element.hoc_ky.includes(`${this.namhoc}`)) ? this.dataSelected.push(element) : ''
       } else {
         this.dataSelected.push(element)
       }
     });
-    console.log(this.dataSelected)
+    console.log(this.dataSelected.length)
+    console.log(this.isLietKe)
+    if(this.dataSelected.length === 0) {
+      sessionStorage.clear()
+    }
     this.saveDataTosessionStorage()
     this.totalTC()
   }
 
   totalTC() {
-    if(this.isLietKe) {
-      this.total_TC_Dky = this.dataSelected[0].ds_diem_mon_hoc.reduce((total, item) => total += parseFloat(item['so_tin_chi']), 0)
+    if(this.isLietKe && this.dataSelected.length > 0) {
+      let total = 0
+      this.dataSelected.forEach((data) => {
+        data.ds_diem_mon_hoc.forEach((item) => {
+          total += parseFloat(item['so_tin_chi']);
+        })
+        this.total_TC_Dky_.push({
+          hocky: data.hoc_ky,
+          total: total
+        })
+      })
+      console.log(this.total_TC_Dky_)
     } else {
       this.total_TC_Dky = this.dataResult[0].ds_diem_mon_hoc.reduce((total, item) => total += parseFloat(item['so_tin_chi']), 0)
     }
