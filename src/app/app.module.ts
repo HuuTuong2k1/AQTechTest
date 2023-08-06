@@ -22,6 +22,7 @@ import { LearningResultComponent } from './modules/learning-result/learning-resu
 import { TestScheduleComponent } from './modules/test-schedule/test-schedule.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogMarksComponent } from './modules/dialog-marks/dialog-marks.component';
+import { TestScheduleDetailComponent } from './modules/test-schedule-detail/test-schedule-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DialogMarksComponent } from './modules/dialog-marks/dialog-marks.compon
     TuitionComponent,
     LearningResultComponent,
     TestScheduleComponent,
-    DialogMarksComponent
+    DialogMarksComponent,
+    TestScheduleDetailComponent
   ],
   imports: [
     BrowserModule,

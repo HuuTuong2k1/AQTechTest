@@ -110,8 +110,6 @@ export class LearningResultComponent implements OnInit{
         this.dataSelected.push(element)
       }
     });
-    console.log(this.dataSelected.length)
-    console.log(this.isLietKe)
     if(this.dataSelected.length === 0) {
       sessionStorage.clear()
     }

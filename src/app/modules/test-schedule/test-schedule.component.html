@@ -1,0 +1,109 @@
+<table class="parent-table">
+    <tbody>
+        <tr>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="5" class="text-center test-schedule-table-header">
+                                Thông tin lịch thi sinh viên
+                            </td>
+                        </tr>
+                        <tr class="tr-lietkeTestSchedule">
+                            <td class="td-lietkeTestSchedule">
+                                <table>
+                                    <tbody>
+                                        <tr class="text-center">
+                                            <td style="width: 30%;" class="text-end">Năm học</td>
+                                            <td>
+                                                <select class="select-lietke" name="" id="namhoc" [(ngModel)]="namhoc">
+                                                    <option value="2020">2020-2021</option>
+                                                    <option value="2021">2021-2022</option>
+                                                    <option value="2022">2022-2023</option>
+                                                    <option value="2023">2023-2024</option>
+                                                    <option value="0">Tất cả</option>
+                                                </select>
+                                            </td>
+                                            <td class="text-start">Học kỳ</td>
+                                            <td class="text-start">
+                                                <select class="select-lietke" name="" id="hocky" [(ngModel)]="hocky">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="0">Tất cả</option>
+                                                </select>
+                                            </td>
+                                            <td style="width: 30%;" class="text-start">
+                                                <button class="btn-lietke" id="btnLietke" (click)="onclickLietke()">
+                                                    Liệt kê
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Bảng thành phần -->
+                <div>
+                    <ng-container *ngIf="data.length > 0; else NoData">
+                        <table class="tables-TestSchedule">
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="text-center test-schedule-table-header">
+                                      Học kỳ {{hocky}} năm học {{namhoc}}-{{(+namhoc) + 1}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                  <th scope="col">STT</th>
+                                                  <th scope="col">Kỳ thi</th>
+                                                  <th scope="col">Mã môn</th>
+                                                  <th scope="col">Tên môn</th>
+                                                  <th scope="col">Ngày thi</th>
+                                                  <th scope="col">Địa điểm thi</th>
+                                                  <th scope="col">Xem chi tiết</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <ng-container >
+                                                    <tr *ngFor="let value of data; index as i">
+                                                      <td class="text-center">{{i+1}}</td>
+                                                      <td>{{value['ky_thi']}}</td>
+                                                      <td>{{value['ma_mon']}}</td>
+                                                      <td>{{value['ten_mon']}}</td>
+                                                      <td>{{value['ngay_thi']}}</td>
+                                                      <td>{{value['dia_diem_thi']}}</td>
+                                                      <td><button class="btn btn-success">Xem</button></td>
+                                                    </tr>
+                                                </ng-container>
+                                              </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
+                    <ng-template #NoData>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="p-3 text-center">
+                                        Không có dữ liệu để hiển thị
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-template>
+                </div>
+                <div class="text-center">
+                    <button routerLink="/home" class="btn-back">Trở lại</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
