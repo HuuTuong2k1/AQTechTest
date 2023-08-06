@@ -21,7 +21,6 @@
                                                     <option value="2021 - 2022">2021-2022</option>
                                                     <option value="2022 - 2023">2022-2023</option>
                                                     <option value="2023 - 2024">2023-2024</option>
-                                                    <option value="0">Tất cả</option>
                                                 </select>
                                             </td>
                                             <td class="text-start">Học kỳ</td>
@@ -29,7 +28,6 @@
                                                 <select class="select-lietke" name="" id="hocky" [(ngModel)]="hocky">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
-                                                    <option value="0">Tất cả</option>
                                                 </select>
                                             </td>
                                             <td style="width: 30%;" class="text-start">
@@ -127,6 +125,23 @@
                             </tbody>
                         </table>
                     </ng-container>
+                    <div class="my-2 note">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span>Sinh viên nộp học phí vào 01 trong 05 ngân hàng (Agribank, HDBank, Sacombank, Vietcombank ,BIDV)</span><br>
+                                        <span style="color: red;">Nội dung chuyển khoản theo cú pháp: MSSV – Họ tên sv – số điện thoại</span><br>
+                                        <span>Thông tin từng ngân hàng sinh viên xem tại đây <a href="#">link</a></span><br>
+                                        <span>Hạn chót đóng học phí: <b>31/08/2023</b></span><br>
+                                        <span style="color: red;">Sau thời hạn đóng học phí, sinh viên không đóng học phí sẽ bị hủy kết quả học tập những học phần nợ học phí trong học kỳ đó và buộc phải đóng học phí còn nợ cùng lúc với học phí của học kỳ tiếp theo.</span><br>
+                                        <span style="color: red;">Không đóng học phí 02 học kỳ liên tiếp sẽ bị buộc thôi học.</span><br>
+                                        <span>Nếu có bất kỳ sai sót nào liên quan đến tiền học phí sinh viên vui lòng liên hệ phòng tài chính:   <b>ptchinh@edu.adu.vn</b></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div *ngIf="!isLietKe">
@@ -212,6 +227,23 @@
                             </tbody>
                         </table>
                     </ng-container>
+                    <div class="my-2 note">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span>Sinh viên nộp học phí vào 01 trong 05 ngân hàng (Agribank, HDBank, Sacombank, Vietcombank ,BIDV)</span><br>
+                                        <span style="color: red;">Nội dung chuyển khoản theo cú pháp: MSSV – Họ tên sv – số điện thoại</span><br>
+                                        <span>Thông tin từng ngân hàng sinh viên xem tại đây <a href="#">link</a></span><br>
+                                        <span>Hạn chót đóng học phí: <b>31/08/2023</b></span><br>
+                                        <span style="color: red;">Sau thời hạn đóng học phí, sinh viên không đóng học phí sẽ bị hủy kết quả học tập những học phần nợ học phí trong học kỳ đó và buộc phải đóng học phí còn nợ cùng lúc với học phí của học kỳ tiếp theo.</span><br>
+                                        <span style="color: red;">Không đóng học phí 02 học kỳ liên tiếp sẽ bị buộc thôi học.</span><br>
+                                        <span>Nếu có bất kỳ sai sót nào liên quan đến tiền học phí sinh viên vui lòng liên hệ phòng tài chính:   <b>ptchinh@edu.adu.vn</b></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="text-center">
                     <button routerLink="/home" class="btn-back">Trở lại</button>

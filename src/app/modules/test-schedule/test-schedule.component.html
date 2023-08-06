@@ -21,7 +21,6 @@
                                                     <option value="2021">2021-2022</option>
                                                     <option value="2022">2022-2023</option>
                                                     <option value="2023">2023-2024</option>
-                                                    <option value="0">Tất cả</option>
                                                 </select>
                                             </td>
                                             <td class="text-start">Học kỳ</td>
@@ -29,7 +28,6 @@
                                                 <select class="select-lietke" name="" id="hocky" [(ngModel)]="hocky">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
-                                                    <option value="0">Tất cả</option>
                                                 </select>
                                             </td>
                                             <td style="width: 30%;" class="text-start">
@@ -76,9 +74,9 @@
                                                       <td>{{value['ky_thi']}}</td>
                                                       <td>{{value['ma_mon']}}</td>
                                                       <td>{{value['ten_mon']}}</td>
-                                                      <td>{{value['ngay_thi']}}</td>
+                                                      <td class="text-center">{{value['ngay_thi'] ? value['ngay_thi'] : '06/08/2023'}}</td>
                                                       <td>{{value['dia_diem_thi']}}</td>
-                                                      <td><button class="btn btn-success" (click)="openDialog(value)">Xem</button></td>
+                                                      <td class="text-center"><button class="btn btn-success" (click)="openDialog(value)">Xem</button></td>
                                                     </tr>
                                                 </ng-container>
                                               </tbody>
@@ -99,6 +97,18 @@
                             </tbody>
                         </table>
                     </ng-template>
+                    <div class="my-2 note">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span>Nếu có bất kỳ sai sót hoặc thắc gì về lịch thi xin vui lòng liên hệ email: <b style="color: red;">nhtuong2001@gmail.com</b> để được giải đáp</span><br>
+                                        <span>Hệ thống sẽ xử lý lịch thi sau khi có đầy đủ thông tin về lịch thi do giảng viên bộ môn cung cấp. Sinh viên có thắc mắc về lịch thi vui lòng liên hệ giảng viên giảng dạy để được giải đáp</span><br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="text-center">
                     <button routerLink="/home" class="btn-back">Trở lại</button>

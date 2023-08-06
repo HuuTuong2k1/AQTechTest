@@ -71,8 +71,10 @@ export class TestScheduleComponent implements OnInit {
   }
 
   openDialog(data:any) {
+    let dataDialog = [];
+    dataDialog.push(data)
     this.dialog.open(TestScheduleDetailComponent, {
-      data: data
+      data: dataDialog
     })
   }
 }

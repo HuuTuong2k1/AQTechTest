@@ -1,1 +1,51 @@
-<p>test-schedule-detail works!</p>
+<div style="width: 800px;" class="container contain-table-detail" *ngIf="data">
+    <table class="table table-striped mt-2 testschelduleDetail-table" *ngFor="let item of data">
+        <tbody>
+            <tr>
+                <td colspan="4" class="text-center testschelduleDetail-title">
+                    Thông tin kỳ thi : {{item.ky_thi}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="testschelduleDetail-header">
+                    {{item.ten_mon}} - Mã môn: {{item.ma_mon}}
+                </td>
+            </tr>
+            <tr>
+                <td>Mã phòng thi</td>
+                <td>{{item.ma_phong}}</td>
+                <td>Mã cơ sở</td>
+                <td>{{item.ma_co_so ? item.ma_co_so : 'DI19V7A8'}}</td>
+            </tr>
+            <tr>
+                <td>Ngày thi</td>
+                <td>{{item.ngay_thi ? item.ngay_thi : '06/08/2023'}}</td>
+                <td>Tiết bắt đầu</td>
+                <td>{{item.tiet_bat_dau ? item.tiet_bat_dau : 'tiết 3'}}</td>
+            </tr>
+            <tr>
+                <td>Thời gian bắt đầu</td>
+                <td>{{item.gio_bat_dau ? item.gio_bat_dau : '8:40'}}</td>
+                <td>Thời gian thi</td>
+                <td>{{item.so_phut ? item.so_phut : '90 phút'}}</td>
+            </tr>
+            <tr>
+                <td>Hình thức thi</td>
+                <td>{{item.hinh_thuc_thi ? item.hinh_thuc_thi : 'Trắc nghiệm'}}</td>
+                <td>Nhóm thi</td>
+                <td>{{item.nhom_thi}}</td>
+            </tr>
+            <tr>
+                <td>Sỉ số</td>
+                <td>{{item.si_so}}</td>
+                <td>Địa điểm thi</td>
+                <td>{{item.dia_diem_thi}}</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="testschelduleDetail-header-back">
+                    <button class="btn btn-danger" (click)="closeDialog()">Đóng</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

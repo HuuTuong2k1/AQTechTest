@@ -90,16 +90,7 @@ export class TuitionComponent implements OnInit{
     this.isLietKe = true
     this.dataSelected = [];
     this.dataTuition.forEach(element => {
-      if (this.hocky != '0' && this.namhoc != '0') {
-        (element.ten_hoc_ky === `Học kỳ ${this.hocky} năm học ${this.namhoc}`) ? this.dataSelected.push(element) : ''
-      } else if (this.hocky != '0' && this.namhoc === '0'){
-        (element.ten_hoc_ky.includes(`Học kỳ ${this.hocky}`)) ? this.dataSelected.push(element) : ''
-        console.log(element.ten_hoc_ky.includes(`Học kỳ ${this.hocky}`))
-      } else if (this.hocky === '0' && this.namhoc != '0') {
-        (element.ten_hoc_ky.includes(`năm học ${this.namhoc}`)) ? this.dataSelected.push(element) : ''
-      } else {
-        this.dataSelected.push(element)
-      }
+      (element.ten_hoc_ky === `Học kỳ ${this.hocky} năm học ${this.namhoc}`) ? this.dataSelected.push(element) : ''
     });
     this.saveDataToSessionStorage()
     this.total()

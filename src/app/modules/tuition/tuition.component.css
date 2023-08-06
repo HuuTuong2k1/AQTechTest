@@ -66,3 +66,9 @@ th {
     background-color: #dae9f3;
     border: 1px solid #b1c6d5;
 }
+
+.note {
+    background-color: aliceblue;
+    padding: 5px;
+    font-size: 13px;
+}
