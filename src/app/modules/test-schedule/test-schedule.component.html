@@ -55,32 +55,37 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                  <th scope="col">STT</th>
-                                                  <th scope="col">Kỳ thi</th>
-                                                  <th scope="col">Mã môn</th>
-                                                  <th scope="col">Tên môn</th>
-                                                  <th scope="col">Ngày thi</th>
-                                                  <th scope="col">Địa điểm thi</th>
-                                                  <th scope="col">Xem chi tiết</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                                <ng-container >
-                                                    <tr *ngFor="let value of data; index as i">
-                                                      <td class="text-center">{{i+1}}</td>
-                                                      <td>{{value['ky_thi']}}</td>
-                                                      <td>{{value['ma_mon']}}</td>
-                                                      <td>{{value['ten_mon']}}</td>
-                                                      <td class="text-center">{{value['ngay_thi'] ? value['ngay_thi'] : '06/08/2023'}}</td>
-                                                      <td>{{value['dia_diem_thi']}}</td>
-                                                      <td class="text-center"><button class="btn btn-success" (click)="openDialog(value)">Xem</button></td>
+                                        <ng-container *ngIf="data.length > 0 else spinner">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                      <th scope="col">STT</th>
+                                                      <th scope="col">Kỳ thi</th>
+                                                      <th scope="col">Mã môn</th>
+                                                      <th scope="col">Tên môn</th>
+                                                      <th scope="col">Ngày thi</th>
+                                                      <th scope="col">Địa điểm thi</th>
+                                                      <th scope="col">Xem chi tiết</th>
                                                     </tr>
-                                                </ng-container>
-                                              </tbody>
-                                        </table>
+                                                  </thead>
+                                                  <tbody>
+                                                    <ng-container >
+                                                        <tr *ngFor="let value of data; index as i">
+                                                          <td class="text-center">{{i+1}}</td>
+                                                          <td>{{value['ky_thi']}}</td>
+                                                          <td>{{value['ma_mon']}}</td>
+                                                          <td>{{value['ten_mon']}}</td>
+                                                          <td class="text-center">{{value['ngay_thi'] ? value['ngay_thi'] : '06/08/2023'}}</td>
+                                                          <td>{{value['dia_diem_thi']}}</td>
+                                                          <td class="text-center"><button class="btn btn-success" (click)="openDialog(value)">Xem</button></td>
+                                                        </tr>
+                                                    </ng-container>
+                                                  </tbody>
+                                            </table>
+                                        </ng-container>
+                                        <ng-template #spinner>
+                                            <mat-spinner></mat-spinner>
+                                        </ng-template>
                                     </td>
                                 </tr>
                             </tbody>

@@ -13,6 +13,9 @@
                 <div class="mb-3">
                   <input type="password" class="form-control" formControlName="password" placeholder="Nhập mật khẩu">
                 </div>
+                <div class="mb-3" *ngIf="ischeckNull" class="toast-err">
+                    <p>username và password không được bỏ trống !</p>
+                </div>
                 <div class="mb-3" *ngIf="err != ''" class="toast-err">
                     <p>{{err}}</p>
                 </div>

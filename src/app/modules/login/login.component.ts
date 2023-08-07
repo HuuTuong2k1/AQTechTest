@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit{
   form!: FormGroup
   isLogin = false
   err = ""
+  ischeckNull = false
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,18 +36,20 @@ export class LoginComponent implements OnInit{
 
   formSubmit() {
     const {username, password} = this.form.value;
-    this.authService.login(username, password).subscribe({
-      next: data => {
-        console.log(data['access_token'])
-        this.cookieService.saveToken(data['access_token'])
-        this.cookieService.saveRefreshToken(data['refresh_token'])
-        this.isLogin = true
-        this.route.navigate(['/home'])
-      },
-      error: err => {
-        this.err = err['error']['message']
-      }
-    })
+    (username == '' || password == '') ? this.ischeckNull = true :
+                                          this.authService.login(username, password).subscribe({
+                                            next: data => {
+                                              console.log(data)
+                                              this.cookieService.saveToken(data['access_token'])
+                                              this.cookieService.saveRefreshToken(data['refresh_token'])
+                                              this.isLogin = true
+                                              this.route.navigate(['/home'])
+                                            },
+                                            error: err => {
+                                              console.log(err);
+                                              this.err = err['error']['message']
+                                            }
+                                          })
   }
 
   resetForm(){

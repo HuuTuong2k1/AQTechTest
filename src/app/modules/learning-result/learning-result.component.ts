@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LearningResultService } from 'src/app/service/learning-result.service';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators'
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogMarksComponent } from '../dialog-marks/dialog-marks.component';
 
 interface LearningResultData{
@@ -33,8 +33,8 @@ interface TotalTC{
 
 export class LearningResultComponent implements OnInit{
   isLietKe = false
-  dataResult:LearningResultData[] = []
-  dataSelected:LearningResultData[] = []
+  dataResult: LearningResultData[] = []
+  dataSelected: LearningResultData[] = []
   hocky: string = ''
   namhoc: string = ''
   total_TC_Dky: number = 0
