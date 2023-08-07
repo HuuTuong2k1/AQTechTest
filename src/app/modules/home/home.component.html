@@ -1,4 +1,5 @@
-<div class="container content-home mt-3">
+<div class="container content-home">
+  <ng-container *ngIf="dataSV; else NoData">
     <table class="table table-main">
         <tbody>
             <tr>
@@ -193,4 +194,8 @@
             </tr>
         </tbody>
     </table>
+  </ng-container>
+  <ng-template #NoData>
+    <mat-spinner></mat-spinner>
+  </ng-template>
 </div>

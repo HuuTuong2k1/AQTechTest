@@ -23,6 +23,7 @@ import { TestScheduleComponent } from './modules/test-schedule/test-schedule.com
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogMarksComponent } from './modules/dialog-marks/dialog-marks.component';
 import { TestScheduleDetailComponent } from './modules/test-schedule-detail/test-schedule-detail.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TestScheduleDetailComponent } from './modules/test-schedule-detail/test
     HttpClientModule,
     MatIconModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

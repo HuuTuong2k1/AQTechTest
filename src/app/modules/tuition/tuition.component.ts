@@ -78,6 +78,7 @@ export class TuitionComponent implements OnInit{
     this.tuitionservice.getHocPhi().subscribe({
       next: data => {
         this.dataTuition = data.data.ds_hoc_phi_hoc_ky
+        console.log(this.dataTuition)
         this.total()
       },
       error: err => {

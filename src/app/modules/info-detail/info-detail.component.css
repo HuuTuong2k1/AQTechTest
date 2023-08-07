@@ -46,3 +46,10 @@ tr > td:nth-child(4) {
 .inforDetail-header-back {
     text-align: center !important;
 }
+
+.contain-table-detail {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

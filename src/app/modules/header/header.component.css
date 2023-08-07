@@ -30,3 +30,35 @@
     display: flex;
     align-items: center;
 }
+
+.header-img {
+    /* display: inline-block;
+    width: 100%; */
+    text-align: center;
+}
+
+.btn-ground-header {
+    z-index: 2;
+}
+
+.img-header::after {
+    position: absolute;
+    content: '';
+    background: linear-gradient(to right, var(--main-color), white);
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    opacity: 0.5;
+}
+
+.img-header::before {
+    position: absolute;
+    content: '';
+    background: linear-gradient(to left, var(--main-color), white);
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    opacity: 0.5;
+}

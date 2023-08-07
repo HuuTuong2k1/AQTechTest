@@ -1,169 +1,174 @@
 <div class="container contain-table-detail">
-    <table class="table table-striped mt-3 infoDetail-table">
-        <tbody>
-            <tr>
-                <td colspan="4" class="text-center inforDetail-title">
-                    Thông tin sinh viên
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4" class="inforDetail-header">
-                    Lý lịch
-                </td>
-            </tr>
-            <tr>
-                <td>Mã số sinh viên</td>
-                <td>{{dataSV?.ma_sv}}</td>
-                <td>Họ tên</td>
-                <td>{{dataSV?.ten_day_du}}</td>
-            </tr>
-            <tr>
-                <td>Giới tính</td>
-                <td>{{dataSV?.gioi_tinh}}</td>
-                <td>Ngày sinh</td>
-                <td>{{dataSV?.ngay_sinh}}</td>
-            </tr>
-            <tr>
-                <td>Tôn giáo</td>
-                <td>{{dataSV?.ton_giao}}</td>
-                <td>Dân tộc</td>
-                <td>{{dataSV?.dan_toc}}</td>
-            </tr>
-            <tr>
-                <td>Số CMND</td>
-                <td>{{dataSV?.so_cmnd}}</td>
-                <td>Quốc tịch</td>
-                <td>{{dataSV?.quoc_tich}}</td>
-            </tr>
-            <tr>
-                <td>Hô khẩu thường trú</td>
-                <td>Ấp Cây Da, xã Tập Sơn, huyện Trà Cú, Tỉnh Trà Vinh</td>
-                <td>Khu vực</td>
-                <td>{{dataSV?.khu_vuc ? dataSV?.khu_vuc : 'Khu vực 2'}}</td>
-            </tr>
-            <tr>
-                <td>Số điện thoại</td>
-                <td>{{dataSV?.dien_thoai}} / {{dataSV?.dien_thoai2}}</td>
-                <td>Trạng thái</td>
-                <td>{{dataSV?.hien_dien_sv}}</td>
-            </tr>
-            <tr>
-                <td>Niên khóa</td>
-                <td>{{dataSV?.nien_khoa}}</td>
-                <td>Email</td>
-                <td>{{dataSV?.email}}</td>
-            </tr>
-            <tr>
-                <td>Trường</td>
-                <td>{{dataSV?.ten_truong}}</td>
-                <td>Khoa</td>
-                <td>{{dataSV?.khoa}}</td>
-            </tr>
-            <tr>
-                <td>Khối</td>
-                <td>{{dataSV?.khoi}}</td>
-                <td>Lớp</td>
-                <td>{{dataSV?.lop}}</td>
-            </tr>
-            <tr>
-                <td>Chuyên ngành</td>
-                <td>{{dataSV?.nganh}}</td>
-                <td>Hệ đào tạo</td>
-                <td>{{dataSV?.bac_he_dao_tao}}</td>
-            </tr>
-            <tr>
-                <td>Ngoại ngữ</td>
-                <td>Tiếng Anh</td>
-                <td>Ngoại ngữ chính</td>
-                <td>Tiếng Anh</td>
-            </tr>
-            <tr>
-                <td>Ngày vào Đoàn</td>
-                <td>26/03/2017</td>
-                <td>Ngày vào Đảng</td>
-                <td>Chưa vào Đảng</td>
-            </tr>
-            <tr>
-                <td>Ngân hàng</td>
-                <td>Sacombank</td>
-                <td>Số tài khoản ngân hàng</td>
-                <td>070128814548</td>
-            </tr>
-            <tr>
-                <td colspan="4" class="inforDetail-header">
-                    Cố vấn học tập
-                </td>
-            </tr>
-            <tr>
-                <td>Mã CB</td>
-                <td>CB5286</td>
-                <td>Họ và tên</td>
-                <td>Trần Minh Tiến</td>
-            </tr>
-            <tr>
-                <td>Bộ môn</td>
-                <td>Công nghệ thông tin</td>
-                <td>Chức vụ</td>
-                <td>Trưởng bộ môn</td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>tmtienCB5286@gmail.com</td>
-                <td>Số điện thoại</td>
-                <td>0989768404</td>
-            </tr>
-            <tr>
-                <td colspan="4" class="inforDetail-header">
-                    Gia đình
-                </td>
-            </tr>
-            <tr>
-                <td>Hộ khẩu tỉnh/TP</td>
-                <td>TP Trà Vinh</td>
-                <td>Hộ khẩu quận/huyện</td>
-                <td>Huyện Trà Cú</td>
-            </tr>
-            <tr>
-                <td>Họ tên cha</td>
-                <td>Nguyễn Hoàng Thành</td>
-                <td>Năm sinh cha</td>
-                <td>1978</td>
-            </tr>
-            <tr>
-                <td>Nghề nghiệp cha</td>
-                <td>Mua bán</td>
-                <td>Nơi làm việc</td>
-                <td>Tại nhà</td>
-            </tr>
-            <tr>
-                <td>Họ tên mẹ</td>
-                <td>Nguyễn Thị Thúy Diễm</td>
-                <td>Năm sinh mẹ</td>
-                <td>1982</td>
-            </tr>
-            <tr>
-                <td>Nghề nghiệp mẹ</td>
-                <td>Mua bán</td>
-                <td>Nơi làm việc</td>
-                <td>Tại nhà</td>
-            </tr>
-            <tr>
-                <td>Điện thoại gia đình</td>
-                <td>02943553789 / 0939788779</td>
-                <td>Địa chỉ hộ khẩu</td>
-                <td>Ấp Cây Da, xã Tập Sơn, huyện Trà Cú, Tỉnh Trà Vinh</td>
-            </tr>
-            <tr>
-                <td>Số anh chị em</td>
-                <td>2</td>
-                <td>Họ tên anh chị em</td>
-                <td>Nguyễn Văn B</td>
-            </tr>
-            <tr>
-                <td colspan="4" class="inforDetail-header-back">
-                    <button class="btn-back my-2" routerLink="/home">Trở lại</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <ng-container *ngIf="dataSV; else NoData">
+        <table class="table table-striped mt-3 infoDetail-table">
+            <tbody>
+                <tr>
+                    <td colspan="4" class="text-center inforDetail-title">
+                        Thông tin sinh viên
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="inforDetail-header">
+                        Lý lịch
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mã số sinh viên</td>
+                    <td>{{dataSV?.ma_sv}}</td>
+                    <td>Họ tên</td>
+                    <td>{{dataSV?.ten_day_du}}</td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>{{dataSV?.gioi_tinh}}</td>
+                    <td>Ngày sinh</td>
+                    <td>{{dataSV?.ngay_sinh}}</td>
+                </tr>
+                <tr>
+                    <td>Tôn giáo</td>
+                    <td>{{dataSV?.ton_giao}}</td>
+                    <td>Dân tộc</td>
+                    <td>{{dataSV?.dan_toc}}</td>
+                </tr>
+                <tr>
+                    <td>Số CMND</td>
+                    <td>{{dataSV?.so_cmnd}}</td>
+                    <td>Quốc tịch</td>
+                    <td>{{dataSV?.quoc_tich}}</td>
+                </tr>
+                <tr>
+                    <td>Hô khẩu thường trú</td>
+                    <td>Ấp Cây Da, xã Tập Sơn, huyện Trà Cú, Tỉnh Trà Vinh</td>
+                    <td>Khu vực</td>
+                    <td>{{dataSV?.khu_vuc ? dataSV?.khu_vuc : 'Khu vực 2'}}</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>{{dataSV?.dien_thoai}} / {{dataSV?.dien_thoai2}}</td>
+                    <td>Trạng thái</td>
+                    <td>{{dataSV?.hien_dien_sv}}</td>
+                </tr>
+                <tr>
+                    <td>Niên khóa</td>
+                    <td>{{dataSV?.nien_khoa}}</td>
+                    <td>Email</td>
+                    <td>{{dataSV?.email}}</td>
+                </tr>
+                <tr>
+                    <td>Trường</td>
+                    <td>{{dataSV?.ten_truong}}</td>
+                    <td>Khoa</td>
+                    <td>{{dataSV?.khoa}}</td>
+                </tr>
+                <tr>
+                    <td>Khối</td>
+                    <td>{{dataSV?.khoi}}</td>
+                    <td>Lớp</td>
+                    <td>{{dataSV?.lop}}</td>
+                </tr>
+                <tr>
+                    <td>Chuyên ngành</td>
+                    <td>{{dataSV?.nganh}}</td>
+                    <td>Hệ đào tạo</td>
+                    <td>{{dataSV?.bac_he_dao_tao}}</td>
+                </tr>
+                <tr>
+                    <td>Ngoại ngữ</td>
+                    <td>Tiếng Anh</td>
+                    <td>Ngoại ngữ chính</td>
+                    <td>Tiếng Anh</td>
+                </tr>
+                <tr>
+                    <td>Ngày vào Đoàn</td>
+                    <td>26/03/2017</td>
+                    <td>Ngày vào Đảng</td>
+                    <td>Chưa vào Đảng</td>
+                </tr>
+                <tr>
+                    <td>Ngân hàng</td>
+                    <td>Sacombank</td>
+                    <td>Số tài khoản ngân hàng</td>
+                    <td>070128814548</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="inforDetail-header">
+                        Cố vấn học tập
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mã CB</td>
+                    <td>CB5286</td>
+                    <td>Họ và tên</td>
+                    <td>Trần Minh Tiến</td>
+                </tr>
+                <tr>
+                    <td>Bộ môn</td>
+                    <td>Công nghệ thông tin</td>
+                    <td>Chức vụ</td>
+                    <td>Trưởng bộ môn</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>tmtienCB5286@gmail.com</td>
+                    <td>Số điện thoại</td>
+                    <td>0989768404</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="inforDetail-header">
+                        Gia đình
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hộ khẩu tỉnh/TP</td>
+                    <td>TP Trà Vinh</td>
+                    <td>Hộ khẩu quận/huyện</td>
+                    <td>Huyện Trà Cú</td>
+                </tr>
+                <tr>
+                    <td>Họ tên cha</td>
+                    <td>Nguyễn Hoàng Thành</td>
+                    <td>Năm sinh cha</td>
+                    <td>1978</td>
+                </tr>
+                <tr>
+                    <td>Nghề nghiệp cha</td>
+                    <td>Mua bán</td>
+                    <td>Nơi làm việc</td>
+                    <td>Tại nhà</td>
+                </tr>
+                <tr>
+                    <td>Họ tên mẹ</td>
+                    <td>Nguyễn Thị Thúy Diễm</td>
+                    <td>Năm sinh mẹ</td>
+                    <td>1982</td>
+                </tr>
+                <tr>
+                    <td>Nghề nghiệp mẹ</td>
+                    <td>Mua bán</td>
+                    <td>Nơi làm việc</td>
+                    <td>Tại nhà</td>
+                </tr>
+                <tr>
+                    <td>Điện thoại gia đình</td>
+                    <td>02943553789 / 0939788779</td>
+                    <td>Địa chỉ hộ khẩu</td>
+                    <td>Ấp Cây Da, xã Tập Sơn, huyện Trà Cú, Tỉnh Trà Vinh</td>
+                </tr>
+                <tr>
+                    <td>Số anh chị em</td>
+                    <td>2</td>
+                    <td>Họ tên anh chị em</td>
+                    <td>Nguyễn Văn B</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="inforDetail-header-back">
+                        <button class="btn-back my-2" routerLink="/home">Trở lại</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+    <ng-template #NoData>
+        <mat-spinner></mat-spinner>
+    </ng-template>
 </div>

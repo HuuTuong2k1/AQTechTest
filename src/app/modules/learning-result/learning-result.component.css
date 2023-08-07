@@ -63,3 +63,10 @@ th {
     padding: 5px;
     font-size: 13px;
 }
+
+.content-learning-result {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
