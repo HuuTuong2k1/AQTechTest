@@ -26,6 +26,8 @@ import { TestScheduleDetailComponent } from './modules/test-schedule-detail/test
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { TableTuitionComponent } from './modules/table-tuition/table-tuition.component';
+import { TableLearningResultComponent } from './modules/table-learning-result/table-learning-result.component';
+import { TableEducationProgramComponent } from './modules/table-education-program/table-education-program.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { TableTuitionComponent } from './modules/table-tuition/table-tuition.com
     TestScheduleComponent,
     DialogMarksComponent,
     TestScheduleDetailComponent,
-    TableTuitionComponent
+    TableTuitionComponent,
+    TableLearningResultComponent,
+    TableEducationProgramComponent
   ],
   imports: [
     BrowserModule,

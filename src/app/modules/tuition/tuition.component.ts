@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TuitionService } from 'src/app/service/tuition.service';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';

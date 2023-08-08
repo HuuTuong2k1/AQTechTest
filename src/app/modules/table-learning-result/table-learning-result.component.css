@@ -15,32 +15,6 @@ table {
     border-radius: 5px 5px 0 0;
 }
 
-.tr-lietkeResult {
-    background-color: #dae9f3;
-    padding: 10px;
-}
-
-.td-lietkeResult {
-    padding: 20px;
-}
-
-.select-lietke {
-    width: 100px;
-}
-
-.btn-lietke, .btn-back  {
-    background-color: var(--main-color);
-    color: #fff;
-    border: none;
-    width: 75px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.btn-lietke:hover {
-    opacity: 0.7;
-}
-
 .tables-Result {
     margin-top: 20px;
 }
@@ -51,6 +25,12 @@ table {
 
 th {
     text-align: center;
+}
+
+.note {
+    background-color: aliceblue;
+    padding: 5px;
+    font-size: 13px;
 }
 
 .content-learning-result {
