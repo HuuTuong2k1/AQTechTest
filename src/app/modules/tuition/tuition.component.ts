@@ -2,19 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TuitionService } from 'src/app/service/tuition.service';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { TableTuitionComponent } from '../table-tuition/table-tuition.component';
-
-interface tuitionData{
-  ten_nhom_ct: string,
-  ten_hoc_ky: string,
-  hoc_phi: string,
-  mien_giam: string,
-  phai_thu: string,
-  tong_hoc_bong: string,
-  da_thu: string,
-  con_no: string,
-  ghi_chu: string
-}
+import { Tuition } from 'src/app/interfaces/tuition';
 
 @Component({
   selector: 'app-tuition',
@@ -23,8 +11,8 @@ interface tuitionData{
 })
 export class TuitionComponent implements OnInit{
 
-  dataTuition: tuitionData[] = []
-  dataSelected: tuitionData[] = []
+  dataTuition: Tuition[] = []
+  dataSelected: Tuition[] = []
   hocky: string = ''
   namhoc: string = ''
   isLietKe = false
