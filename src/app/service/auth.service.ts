@@ -18,7 +18,7 @@ export class AuthService {
       .set('username', username)
       .set('password', password)
       .set('grant_type', 'password')
-    return this.http.post<any>("/auth/login", body.toString(), httpOptions)
+    return this.http.post<any>("api/auth/login", body.toString(), httpOptions)
   }
 
 }

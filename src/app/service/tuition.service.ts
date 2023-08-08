@@ -12,6 +12,6 @@ export class TuitionService {
   ) { }
 
   public getHocPhi(): Observable<any> {
-    return this.http.post("/rms/w-locdstonghophocphisv","")
+    return this.http.post("api/rms/w-locdstonghophocphisv","")
   }
 }

@@ -30,6 +30,6 @@ export class TestScheduleService {
         ]
       }
     };
-    return this.http.post("/epm/w-locdslichthisvtheohocky",rqBody)
+    return this.http.post("api/epm/w-locdslichthisvtheohocky",rqBody)
   }
 }

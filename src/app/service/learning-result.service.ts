@@ -12,6 +12,6 @@ export class LearningResultService {
   ) { }
 
   public getDiem(): Observable<any> {
-    return this.http.post("/srm/w-locdsdiemsinhvien", "")
+    return this.http.post("api/srm/w-locdsdiemsinhvien", "")
   }
 }

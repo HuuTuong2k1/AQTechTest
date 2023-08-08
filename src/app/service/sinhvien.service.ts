@@ -12,6 +12,6 @@ export class SinhvienService {
   ) { }
 
   public getSinhVien(): Observable<any> {
-    return this.http.post('/dkmh/w-locsinhvieninfo','');
+    return this.http.post('api/dkmh/w-locsinhvieninfo','');
   }
 }

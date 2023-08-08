@@ -25,6 +25,7 @@ import { DialogMarksComponent } from './modules/dialog-marks/dialog-marks.compon
 import { TestScheduleDetailComponent } from './modules/test-schedule-detail/test-schedule-detail.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { TableTuitionComponent } from './modules/table-tuition/table-tuition.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ToastrModule } from 'ngx-toastr';
     LearningResultComponent,
     TestScheduleComponent,
     DialogMarksComponent,
-    TestScheduleDetailComponent
+    TestScheduleDetailComponent,
+    TableTuitionComponent
   ],
   imports: [
     BrowserModule,

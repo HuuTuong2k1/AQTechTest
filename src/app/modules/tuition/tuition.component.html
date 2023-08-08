@@ -1,5 +1,5 @@
 <div class="content-tuition">
-    <ng-container *ngIf="isCheckData20201() || dataSelected.length > 0; else NoData">
+    <ng-container *ngIf="dataSelected.length > 0 || dataTuition.length > 0; else NoData">
         <table class="parent-table">
             <tbody>
                 <tr>
@@ -7,7 +7,7 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <td colspan="5" class="text-center education-program-table-header">
+                                    <td colspan="5" class="text-center tuition-table-header">
                                         Thông tin học phí
                                     </td>
                                 </tr>
@@ -23,6 +23,7 @@
                                                             <option value="2021 - 2022">2021-2022</option>
                                                             <option value="2022 - 2023">2022-2023</option>
                                                             <option value="2023 - 2024">2023-2024</option>
+                                                            <option value="0">Tất cả</option>
                                                         </select>
                                                     </td>
                                                     <td class="text-start">Học kỳ</td>
@@ -30,6 +31,7 @@
                                                         <select class="select-lietke" name="" id="hocky" [(ngModel)]="hocky">
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
+                                                            <option value="0">Tất cả</option>
                                                         </select>
                                                     </td>
                                                     <td style="width: 30%;" class="text-start">
@@ -47,205 +49,11 @@
         
                         <!-- Bảng thành phần -->
                         <div *ngIf="isLietKe">
-                            <ng-container *ngIf="dataSelected">
-                                <table class="tables-Tuition">
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="5" class="text-center education-program-table-header">
-                                               Học kỳ {{hocky}} năm học {{namhoc}} 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">STT</th>
-                                                            <th style="width: 15%;" scope="col">Tiêu đề</th>
-                                                            <th scope="col">Học phí</th>
-                                                            <th scope="col">Miễn giảm</th>
-                                                            <th scope="col">Phải thu</th>
-                                                            <th scope="col">Tổng học bổng</th>
-                                                            <th scope="col">Đã thu</th>
-                                                            <th scope="col">Còn nợ</th>
-                                                            <th scope="col">Ghi chú</th>
-                                                        </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                        <ng-container *ngIf="dataSelected.length > 0; else noDataSelected">
-                                                            <tr *ngFor="let item of dataSelected; index as i">
-                                                                <td class="td-stt">{{i+1}}</td>
-                                                                <td>{{item.ten_nhom_ct}}</td>
-                                                                <td>{{item.hoc_phi}}</td>
-                                                                <td>{{item.mien_giam}}</td>
-                                                                <td>{{item.phai_thu}}</td>
-                                                                <td>{{item.tong_hoc_bong}}</td>
-                                                                <td>{{item.da_thu}}</td>
-                                                                <td>{{item.con_no}}</td>
-                                                                <td>{{item.ghi_chu}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">Tổng cộng</td>
-                                                                <td colspan="3" class="td-total">{{totalHocPhi}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                    Miễn giảm
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalMienGiam}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                    Phải đóng
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalPhaiThu}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                   Đã đóng
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalDaThu}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                    Còn nợ
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalConNo}}</td>
-                                                            </tr>
-                                                        </ng-container>
-                                                        <ng-template #noDataSelected>
-                                                            <tr>
-                                                                <td colspan="9" class="text-center">
-                                                                    Không có dữ liệu
-                                                                </td>
-                                                            </tr>
-                                                        </ng-template>
-                                                      </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </ng-container>
-                            <div class="my-2 note">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <span>Sinh viên nộp học phí vào 01 trong 05 ngân hàng (Agribank, HDBank, Sacombank, Vietcombank ,BIDV)</span><br>
-                                                <span style="color: red;">Nội dung chuyển khoản theo cú pháp: MSSV – Họ tên sv – số điện thoại</span><br>
-                                                <span>Thông tin từng ngân hàng sinh viên xem tại đây <a href="#">link</a></span><br>
-                                                <span>Hạn chót đóng học phí: <b>31/08/2023</b></span><br>
-                                                <span style="color: red;">Sau thời hạn đóng học phí, sinh viên không đóng học phí sẽ bị hủy kết quả học tập những học phần nợ học phí trong học kỳ đó và buộc phải đóng học phí còn nợ cùng lúc với học phí của học kỳ tiếp theo.</span><br>
-                                                <span style="color: red;">Không đóng học phí 02 học kỳ liên tiếp sẽ bị buộc thôi học.</span><br>
-                                                <span>Nếu có bất kỳ sai sót nào liên quan đến tiền học phí sinh viên vui lòng liên hệ phòng tài chính:   <b>ptchinh@edu.adu.vn</b></span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <app-table-tuition [data]="dataSelected" [hocky]="hocky" [namhoc]="namhoc"></app-table-tuition>
                         </div>
         
                         <div *ngIf="!isLietKe">
-                            <ng-container *ngIf="dataTuition">
-                                <table class="tables-Tuition" >
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="5" class="text-center education-program-table-header">
-                                                Học kỳ 1 năm học 2020 - 2021
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                          <th scope="col">STT</th>
-                                                          <th style="width: 15%;" scope="col">Tiêu đề</th>
-                                                          <th scope="col">Học phí</th>
-                                                          <th scope="col">Miễn giảm</th>
-                                                          <th scope="col">Phải thu</th>
-                                                          <th scope="col">Tổng học bổng</th>
-                                                          <th scope="col">Đã thu</th>
-                                                          <th scope="col">Còn nợ</th>
-                                                          <th scope="col">Ghi chú</th>
-                                                        </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                        <ng-container *ngIf="isCheckData20201(); else noData">
-                                                            <tr *ngFor="let item of dataTuition; index as i">
-                                                                <ng-container *ngIf="item.ten_hoc_ky === 'Học kỳ 1 năm học 2020 - 2021'">
-                                                                    <td class="td-stt">{{i+1}}</td>
-                                                                    <td>{{item.ten_nhom_ct}}</td>
-                                                                    <td>{{item.hoc_phi}}</td>
-                                                                    <td>{{item.mien_giam}}</td>
-                                                                    <td>{{item.phai_thu}}</td>
-                                                                    <td>{{item.tong_hoc_bong}}</td>
-                                                                    <td>{{item.da_thu}}</td>
-                                                                    <td>{{item.con_no}}</td>
-                                                                    <td>{{item.ghi_chu}}</td>
-                                                                </ng-container>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">Tổng cộng</td>
-                                                                <td colspan="3" class="td-total">{{totalHocPhi}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                    Miễn giảm
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalMienGiam}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                    Phải đóng
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalPhaiThu}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                    Đã đóng
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalDaThu}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="6" class="td-total">
-                                                                    Còn nợ
-                                                                </td>
-                                                                <td colspan="3" class="td-total">{{totalConNo}}</td>
-                                                            </tr>
-                                                        </ng-container>
-                                                        <ng-template #noData>
-                                                            <tr>
-                                                              <td colspan="9" class="text-center">
-                                                                Không có dữ liệu
-                                                              </td>
-                                                            </tr>
-                                                          </ng-template>
-                                                      </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </ng-container>
-                            <div class="my-2 note">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <span>Sinh viên nộp học phí vào 01 trong 05 ngân hàng (Agribank, HDBank, Sacombank, Vietcombank ,BIDV)</span><br>
-                                                <span style="color: red;">Nội dung chuyển khoản theo cú pháp: MSSV – Họ tên sv – số điện thoại</span><br>
-                                                <span>Thông tin từng ngân hàng sinh viên xem tại đây <a href="#">link</a></span><br>
-                                                <span>Hạn chót đóng học phí: <b>31/08/2023</b></span><br>
-                                                <span style="color: red;">Sau thời hạn đóng học phí, sinh viên không đóng học phí sẽ bị hủy kết quả học tập những học phần nợ học phí trong học kỳ đó và buộc phải đóng học phí còn nợ cùng lúc với học phí của học kỳ tiếp theo.</span><br>
-                                                <span style="color: red;">Không đóng học phí 02 học kỳ liên tiếp sẽ bị buộc thôi học.</span><br>
-                                                <span>Nếu có bất kỳ sai sót nào liên quan đến tiền học phí sinh viên vui lòng liên hệ phòng tài chính:   <b>ptchinh@edu.adu.vn</b></span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <app-table-tuition [data]="dataTuition" [hocky]="hocky" [namhoc]="namhoc"></app-table-tuition>
                         </div>
                         <div class="text-center">
                             <button routerLink="/home" class="btn-back">Trở lại</button>

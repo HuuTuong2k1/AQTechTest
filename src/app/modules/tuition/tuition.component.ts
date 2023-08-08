@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TuitionService } from 'src/app/service/tuition.service';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { TableTuitionComponent } from '../table-tuition/table-tuition.component';
 
 interface tuitionData{
   ten_nhom_ct: string,
@@ -22,8 +23,8 @@ interface tuitionData{
 })
 export class TuitionComponent implements OnInit{
 
-  dataTuition: tuitionData[]=[]
-  dataSelected: tuitionData[]=[]
+  dataTuition: tuitionData[] = []
+  dataSelected: tuitionData[] = []
   hocky: string = ''
   namhoc: string = ''
   isLietKe = false
@@ -58,8 +59,8 @@ export class TuitionComponent implements OnInit{
       this.isLietKe = isLietKe
       this.dataSelected = dataSelected
     } else {
-      this.hocky = '1'
-      this.namhoc = '2020 - 2021'
+      this.hocky = '0'
+      this.namhoc = '0'
     }
   }
 
@@ -78,8 +79,6 @@ export class TuitionComponent implements OnInit{
     this.tuitionservice.getHocPhi().subscribe({
       next: data => {
         this.dataTuition = data.data.ds_hoc_phi_hoc_ky
-        console.log(this.dataTuition)
-        this.total()
       },
       error: err => {
         console.log(err)
@@ -91,30 +90,19 @@ export class TuitionComponent implements OnInit{
     this.isLietKe = true
     this.dataSelected = [];
     this.dataTuition.forEach(element => {
-      (element.ten_hoc_ky === `Học kỳ ${this.hocky} năm học ${this.namhoc}`) ? this.dataSelected.push(element) : ''
+      if (this.hocky != '0' && this.namhoc != '0' && element.ten_hoc_ky === `Học kỳ ${this.hocky} năm học ${this.namhoc}`) {
+        this.dataSelected.push(element) 
+      } else if (this.hocky != '0' && this.namhoc === '0' && element.ten_hoc_ky.includes(`Học kỳ ${this.hocky}`)){
+        this.dataSelected.push(element) 
+      } else if (this.hocky === '0' && this.namhoc != '0' && element.ten_hoc_ky.includes(`năm học ${this.namhoc}`)){
+        console.log(element.ten_hoc_ky.includes(`năm học ${this.namhoc}`))
+        this.dataSelected.push(element) 
+      } else if (this.hocky === '0' && this.namhoc === '0') {
+        this.dataSelected.push(element)
+      } else {
+        
+      }
     });
     this.saveDataToSessionStorage()
-    this.total()
-  }
-
-  isCheckData20201() {
-    return this.dataTuition.some(item => item.ten_hoc_ky === 'Học kỳ 1 năm học 2020 - 2021')
-  }
-
-  total() {
-    if(this.isLietKe) {
-      this.totalHocPhi = this.dataSelected.reduce((total, item) => total + parseFloat(item.hoc_phi), 0)
-      this.totalMienGiam = this.dataSelected.reduce((total, item) => total + parseFloat(item.mien_giam), 0)
-      this.totalPhaiThu = this.totalHocPhi - this.totalMienGiam
-      this.totalDaThu = this.dataSelected.reduce((total, item) => total + parseFloat(item.da_thu), 0)
-      this.totalConNo = this.totalPhaiThu - this.totalDaThu
-    } else {
-      this.totalHocPhi = this.dataTuition.filter(item => item.ten_hoc_ky === 'Học kỳ 1 năm học 2020 - 2021').reduce((total, item) => total + parseFloat(item.hoc_phi), 0)
-      this.totalMienGiam = this.dataTuition.filter(item => item.ten_hoc_ky === 'Học kỳ 1 năm học 2020 - 2021').reduce((total, item) => total + parseFloat(item.mien_giam), 0)
-      this.totalPhaiThu = this.totalHocPhi - this.totalMienGiam
-      this.totalDaThu = this.dataTuition.filter(item => item.ten_hoc_ky === 'Học kỳ 1 năm học 2020 - 2021').reduce((total, item) => total + parseFloat(item.da_thu), 0)
-      this.totalConNo = this.totalPhaiThu - this.totalDaThu
-      console.log(this.totalHocPhi)
-    }
   }
 }

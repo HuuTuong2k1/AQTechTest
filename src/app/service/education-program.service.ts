@@ -29,6 +29,6 @@ export class EducationProgramService {
   ) { }
 
   public educationProgram(): Observable<any> {
-    return this.http.post("/sch/w-locdsctdtsinhvien",this.requestBody)
+    return this.http.post("api/sch/w-locdsctdtsinhvien",this.requestBody)
   }
 }

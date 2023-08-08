@@ -1,48 +1,6 @@
 {
-    "/auth/login": {
-      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    },
-
-    "/dkmh/w-locsinhvieninfo": {
-      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    },
-
-    "/sch/w-locdsctdtsinhvien": {
-      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    },
-
-    "/rms/w-locdstonghophocphisv": {
-      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    },
-
-    "/srm/w-locdsdiemsinhvien": {
-      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    },
-
-    "/srm/w-locdshockydiemsinhvien": {
-      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    },
-
-    "/epm/w-locdslichthisvtheohocky": {
-      "target": "https://sp.aqtech.edu.vn/release_portal.netweb/api",
+    "/api/**": {
+      "target": "https://sp.aqtech.edu.vn/release_portal.netweb",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
