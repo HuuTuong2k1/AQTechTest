@@ -24,6 +24,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogMarksComponent } from './modules/dialog-marks/dialog-marks.component';
 import { TestScheduleDetailComponent } from './modules/test-schedule-detail/test-schedule-detail.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatIconModule,
     RouterModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      closeButton: true
+    })
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

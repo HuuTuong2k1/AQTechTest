@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from './cookie.service';
 import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class HelperService implements HttpInterceptor{
 
   constructor(
@@ -31,8 +32,8 @@ export class HelperService implements HttpInterceptor{
           // Chuyển hướng về trang đăng nhập
           this.cookieService.logout()
           this.route.navigate(['/login']);
-        }
-        return of(error);
+        } 
+        return throwError(() => error);
       })
     )
   }

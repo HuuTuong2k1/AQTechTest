@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 import { CookieService } from 'src/app/service/cookie.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,15 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
   form!: FormGroup
   isLogin = false
-  err = ""
-  ischeckNull = false
+  isError = false
+  err: string = ''
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private cookieService: CookieService,
-    private route: Router
+    private route: Router,
+    private toast: ToastrService
   ){}
 
   ngOnInit(): void {
@@ -36,23 +38,27 @@ export class LoginComponent implements OnInit{
 
   formSubmit() {
     const {username, password} = this.form.value;
-    (username == '' || password == '') ? this.ischeckNull = true :
-                                          this.authService.login(username, password).subscribe({
-                                            next: data => {
-                                              console.log(data)
-                                              this.cookieService.saveToken(data['access_token'])
-                                              this.cookieService.saveRefreshToken(data['refresh_token'])
-                                              this.isLogin = true
-                                              this.route.navigate(['/home'])
-                                            },
-                                            error: err => {
-                                              console.log(err);
-                                              this.err = err['error']['message']
-                                            }
-                                          })
+    this.authService.login(username, password).subscribe({
+      next: data => {
+        this.cookieService.saveToken(data['access_token'])
+        this.cookieService.saveRefreshToken(data['refresh_token'])
+        this.isLogin = true
+        this.route.navigate(['/home'])
+        this.toast.success('Đăng nhập thành công ', 'Successfully')
+      },
+      error: err => {
+        this.err = err['error']['message']
+        this.isError = true
+      }
+    })
   }
 
   resetForm(){
     this.form.reset();
+  }
+
+  showError(error: string) {
+    this.toast.error(error, 'Failed !')
+    this.isError = false
   }
 }
