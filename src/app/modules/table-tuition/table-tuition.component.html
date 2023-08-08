@@ -46,43 +46,43 @@
                                     <ng-container>
                                         <td class="td-stt">{{i+1}}</td>
                                         <td>{{item.ten_nhom_ct}}</td>
-                                        <td>{{customMoney(item.hoc_phi)}}</td>
+                                        <td>{{customMoney(+item.hoc_phi)}}</td>
                                         <td>{{item.ten_hoc_ky}}</td>
-                                        <td>{{customMoney(item.mien_giam)}}</td>
-                                        <td>{{customMoney(item.phai_thu)}}</td>
-                                        <td>{{item.tong_hoc_bong}}</td>
-                                        <td>{{customMoney(item.da_thu)}}</td>
-                                        <td>{{customMoney(item.con_no)}}</td>
+                                        <td>{{customMoney(+item.mien_giam)}}</td>
+                                        <td>{{customMoney(+item.phai_thu)}}</td>
+                                        <td>{{item.tong_hoc_bong ? item.tong_hoc_bong : customMoney(0)}}</td>
+                                        <td>{{customMoney(+item.da_thu)}}</td>
+                                        <td>{{customMoney(+item.con_no)}}</td>
                                         <td>{{item.ghi_chu}}</td>
                                     </ng-container>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="td-total">Tổng cộng</td>
-                                    <td colspan="4" class="td-total">{{totalHocPhi}}</td>
+                                    <td colspan="4" class="td-total">{{customMoney(totalHocPhi)}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="td-total">
                                         Miễn giảm
                                     </td>
-                                    <td colspan="4" class="td-total">{{totalMienGiam}}</td>
+                                    <td colspan="4" class="td-total">{{customMoney(totalMienGiam)}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="td-total">
                                         Phải đóng
                                     </td>
-                                    <td colspan="4" class="td-total">{{totalPhaiThu}}</td>
+                                    <td colspan="4" class="td-total">{{customMoney(totalPhaiThu)}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="td-total">
                                         Đã đóng
                                     </td>
-                                    <td colspan="4" class="td-total">{{totalDaThu}}</td>
+                                    <td colspan="4" class="td-total">{{customMoney(totalDaThu)}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="td-total">
                                         Còn nợ
                                     </td>
-                                    <td colspan="4" class="td-total">{{totalConNo}}</td>
+                                    <td colspan="4" class="td-total">{{customMoney(totalConNo)}}</td>
                                 </tr>
                             </ng-container>
                             <ng-template #noData>

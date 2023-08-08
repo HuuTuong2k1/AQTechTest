@@ -36,7 +36,7 @@ export class TableTuitionComponent implements OnInit, OnChanges{
       this.totalConNo = this.totalPhaiThu - this.totalDaThu
   }
 
-  customMoney(money: string): string {
-    return parseFloat(money).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
+  customMoney(money: number): string {
+    return money.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
   }
 }
