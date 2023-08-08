@@ -1,13 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { EducationProgramService } from 'src/app/service/education-program.service';
-
-interface EducationProgramData {
-  hoc_ky: string;
-  ten_hoc_ky: string;
-  ds_CTDT_mon_hoc: any[]; // You can replace `any` with a more specific type if possible
-}
+import { Component, OnInit } from '@angular/core'
+import { Router, NavigationStart } from '@angular/router'
+import { filter } from 'rxjs/operators'
+import { EducationProgramService } from 'src/app/service/education-program.service'
+import { EducationProgramData } from 'src/app/interfaces/education-program-data'
 
 @Component({
   selector: 'app-education-program',
@@ -16,8 +11,8 @@ interface EducationProgramData {
 })
 export class EducationProgramComponent implements OnInit{
   isLietKe = false
-  dataCTDT: EducationProgramData[] = []
-  dataSelected: EducationProgramData[] = []
+  dataCTDT: EducationProgramData [] = []
+  dataSelected: EducationProgramData [] = []
   hocky: string = ''
   namhoc: string = ''
 
@@ -56,8 +51,8 @@ export class EducationProgramComponent implements OnInit{
       this.isLietKe = isLietKe;
       this.dataSelected = dataSelected;
     } else {
-      this.hocky = '1';
-      this.namhoc = '2020-2021';
+      this.hocky = '0';
+      this.namhoc = '0';
     }
   }
 

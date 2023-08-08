@@ -1,1 +1,56 @@
-<p>table-education-program works!</p>
+<ng-container *ngIf="data.length > 0; else NoData">
+    <table class="tables-CTDT" *ngFor="let data of data">
+        <tbody>
+            <tr>
+                <td colspan="5" class="text-center education-program-table-header">
+                    {{data.ten_hoc_ky}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="table table-striped table-hover table-bordered table-education-program">
+                        <thead>
+                            <tr>
+                              <th scope="col">STT</th>
+                              <th style="width: 11%;" scope="col">Mã môn học</th>
+                              <th scope="col">Tên môn học</th>
+                              <th scope="col">Số TC</th>
+                              <th scope="col">Bắt buộc</th>
+                              <th scope="col">Số tiết LT</th>
+                              <th scope="col">Số tiết TH</th>
+                              <th scope="col">Môn đã học</th>
+                              <th scope="col">Ghi chú</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <ng-container *ngIf="data">
+                                <tr *ngFor="let value of data.ds_CTDT_mon_hoc; index as i">
+                                  <td>{{i+1}}</td>
+                                  <td>{{value.ma_mon}}</td>
+                                  <td>{{value.ten_mon}}</td>
+                                  <td>{{value.so_tin_chi}}</td>
+                                  <td>{{value.mon_bat_buoc}}</td>
+                                  <td>{{value.ly_thuyet}}</td>
+                                  <td>{{value.thuc_hanh}}</td>
+                                  <td>{{value.mon_da_hoc}}</td>
+                                  <td></td>
+                                </tr>
+                            </ng-container>
+                          </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
+<ng-template #NoData>
+    <table>
+        <tbody>
+            <tr>
+                <td class="p-3 text-center">
+                    Không có dữ liệu để hiển thị
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

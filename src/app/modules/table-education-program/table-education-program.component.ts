@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { EducationProgramData } from 'src/app/interfaces/education-program-data';
 
 @Component({
   selector: 'app-table-education-program',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./table-education-program.component.css']
 })
 export class TableEducationProgramComponent {
+  @Input() data: EducationProgramData [] = []
+  @Input() hocky: string = ''
+  @Input() namhoc: string = ''
 
+  
 }
