@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ShareDataService } from 'src/app/service/share-data.service';
-import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-info-detail',
