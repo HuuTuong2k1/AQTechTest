@@ -30,7 +30,7 @@
                                   <td class="text-center">{{value['so_tin_chi']}}</td>
                                   <td class="text-center">{{value['diem_tk_chu']}}</td>
                                   <td class="text-center">{{value['diem_tk_so']}}</td>
-                                  <td mat-button class="text-center {{value['diem_tk_so'] ? 'xem-diem' : ''}}"><a (click)="openDialog(value)" href="">{{value['diem_tk_so'] ? 'xem' : ''}}</a></td>
+                                  <td mat-button class="text-center"><a class="xem-diem" (click)="openDialog(value)">{{value['diem_tk_so'] ? 'Xem' : ''}}</a></td>
                                   <td class="text-center" style="color: red; font-size: 20px;">{{value['diem_tk_so'] >= 1 ? '*' : ''}}</td>
                                 </tr>
                             </ng-container>
@@ -39,25 +39,25 @@
                     <table class="table table-light table-tk">
                         <tbody>
                             <tr>
-                                <td>Tổng số tính chỉ đăng ký</td>
+                                <td><b>Tổng số tính chỉ đăng ký</b></td>
                                 <ng-container *ngFor="let item of total_TC_Dky_">
                                     <td *ngIf="item.hocky === value.hoc_ky">
                                         {{item['total']}}
                                     </td>
                                 </ng-container>
-                                <td>Điểm trung bình học kỳ</td>
+                                <td><b>Điểm trung bình học kỳ</b></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Tổng số tín chỉ tích lũy học kỳ</td>
+                                <td><b>Tổng số tín chỉ tích lũy học kỳ</b></td>
                                 <td></td>
-                                <td>Điểm trung bình tích lũy</td>
+                                <td><b>Điểm trung bình tích lũy</b></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Tổng số tín chỉ tích lũy</td>
+                                <td><b>Tổng số tín chỉ tích lũy</b></td>
                                 <td></td>
-                                <td>Điểm rèn luyện</td>
+                                <td><b>Điểm rèn luyện</b></td>
                                 <td>80</td>
                             </tr>
                         </tbody>

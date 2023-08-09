@@ -54,3 +54,9 @@ th {
     padding: 5px;
     font-size: 13px;
 }
+
+.xem-lich-thi {
+    margin: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
