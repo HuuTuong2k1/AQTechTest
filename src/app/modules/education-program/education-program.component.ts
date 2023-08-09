@@ -23,7 +23,7 @@ export class EducationProgramComponent implements OnInit{
     this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
       .subscribe(() => {
-        sessionStorage.clear(); // Xóa dữ liệu trong sessionStorage mỗi khi chuyển trang
+        sessionStorage.clear();
     });
   }
 
