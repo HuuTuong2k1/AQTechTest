@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SinhvienService } from 'src/app/service/sinhvien.service';
 import { ShareDataService } from 'src/app/service/share-data.service';
+import { CookieService } from 'src/app/service/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +14,15 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private sinhvienService: SinhvienService,
-    private shareService: ShareDataService
+    private shareService: ShareDataService,
+    private cookieService: CookieService,
+    private route: Router
   ){}
 
   ngOnInit(): void {
     this.inforSinhVien()
+
+    this.cookieService.checkIsLogin() ? '' : this.route.navigate(['login'])
   }
 
   inforSinhVien() {

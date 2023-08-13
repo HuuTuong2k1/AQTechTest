@@ -13,7 +13,7 @@ export class TableLearningResultComponent implements OnInit{
   @Input() data: LearningResultData [] = []
   @Input() namhoc: string = ''
   @Input() hocky: string = ''
-  total_TC_Dky_: TotalTC[]=[]
+  total_TC_Dky_: TotalTC [] = []
 
   constructor(
     private dialog: MatDialog
